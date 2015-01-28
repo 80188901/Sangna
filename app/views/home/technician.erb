@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+  <%=javascript_include_tag  "mui.min"%>
+   
+    <%=stylesheet_link_tag "mui.min"%>
+     <%=stylesheet_link_tag "base"%>
+      <%=stylesheet_link_tag "tel"%>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	  <h1 class="mui-title">技师风采</h1>
+	</header>
+	
+	<div class="mui-content" style="background: #FFFFFF;margin-top: 10px;">
+	<%@technicians.each do |technician|%>
+		<div class="tel_list">
+			<dl class="one">
+			<%if technician.gender%>
+				
+				<%= image_tag 'man.png',:class=>'one_img'%>
+				<%else%>
+				<%= image_tag 'woman.png',:class=>'one_img'%>
+				<%end%>
+			</dl>
+			<dl class="two">
+				<span class="two_num"><%=technician.number%></span>
+				<span><%=technician.name%></span>
+			</dl>
+			<dl class="three">
+			<%if technician.situation=='空闲'%>
+				<button class="three_submit">立即预约</button>
+				<%else%>
+				<button class="three_free"><%=technician.situation%></button>
+				<%end%>
+			</dl>
+		</div>
+		<div class="clear"></div>
+		<%end%>
+	</div>
+	</body>
+</html>

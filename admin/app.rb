@@ -32,8 +32,11 @@ module Sanna
     end
 
     access_control.roles_for :admin do |role|
-      role.project_module :shops, '/shops'
+      role.project_module :technicians, '/technicians'
+      role.project_module :servers, '/servers'
       role.project_module :shopimages, '/shopimages'
+      role.project_module :shops, '/shops'
+    
     
       
       role.project_module :accounts, '/accounts'

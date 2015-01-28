@@ -31,5 +31,15 @@ get :lookdetails ,:with=>:id do
     @shops=Shop.all();
     render :map
   end
+  get :server ,:with=>:id do
+ shop=Shop.find(params[:id])
+ @servers=shop.servers
+    render :server
+  end
+  get :technician,:with=>:id do
+shop=Shop.find(params[:id])
+@technicians=shop.technicians
+render :technician
+  end
 
 end

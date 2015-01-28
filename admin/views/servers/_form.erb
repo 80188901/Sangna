@@ -1,0 +1,41 @@
+<% error = @server.errors.include?(:shop_id) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :shop_id, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :shop_id, :class => 'form-control input-xlarge input-with-feedback', :autofocus => true %>
+    <span class='help-inline'><%= error ? f.error_message_on(:shop_id) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @server.errors.include?(:name) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :name, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :name, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:name) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @server.errors.include?(:price) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :price, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :price, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:price) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @server.errors.include?(:remaek) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :remaek, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :remaek, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:remaek) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  <%= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue' %>
+  &nbsp;
+  <%= link_to pat(:cancel), url(:servers, :index), :class => 'btn btn-default' %>
+</div>
