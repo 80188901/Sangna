@@ -1,0 +1,57 @@
+#club{
+	height: 50px;
+	line-height: 50px;
+	color: #999999;
+	background: #FFFFFF;
+	border-bottom: 1px solid #CCCCCC;
+}
+.w_club{
+	font-size: 18px;
+	display: block;
+	float: left;
+}
+.localtion{
+	margin-top: 12px;
+	margin-right: 10px;
+	float: right;
+	width: 20px;
+	height: 20px;
+}
+.serve_list{
+	height: 50px;
+	line-height: 50px;
+	color: #666;
+	background: #FFFFFF;
+	border-bottom: 1px solid #CCCCCC;
+}
+.serve_list dl{
+	float: left;
+	width: 50%;
+}
+.serve_list span{
+	float: right;
+}
+.serve_item{
+	margin-top: 10px;
+}
+.serve_time{
+	font-size: 18px;
+	margin-top: -10px;
+	margin-right: 20px;
+}
+.serve_favorable{
+	font-size: 12px;
+	margin-top: -40px;
+	margin-right: 20px;
+}
+.buy_submit{
+	width: 80%;
+	display: block;
+	margin:0 auto;
+	color: #FFFFFF;
+	background: #00FF00;
+	font-size: 18px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0;
+}

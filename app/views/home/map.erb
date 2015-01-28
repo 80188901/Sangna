@@ -1,0 +1,77 @@
+    <!DOCTYPE html>  
+    <html>  
+    <head>  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
+    <style type="text/css">  
+    body, html,#l-map {width: 100%;height: 100%;overflow: hidden;hidden;margin:0;}  
+    </style>  
+    <script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=GiTogIkns0505WZWt7rZq04Y&v=1.0"></script>  
+    <title>显示地图</title>  
+
+    </head>  
+    <body>  
+    <div id="l-map"></div>  
+
+    </body>
+    </html>  
+    <script type="text/javascript">  
+
+    var map = new BMap.Map("l-map");  
+    map.centerAndZoom(new BMap.Point(114.133663, 22.547752), 20);  
+   var zoomControl=new BMap.ZoomControl();  
+map.addControl(zoomControl);//添加缩放控件  
+var scaleControl=new BMap.ScaleControl();  
+map.addControl(scaleControl);//添加比例尺控件 
+
+<% @shops.each do |shop|%>
+var myGeo = new BMap.Geocoder();      
+// 将地址解析结果显示在地图上，并调整地图视野    
+
+myGeo.getPoint("<%=shop.address%>", function(point){      
+          if (point) {      
+              map.centerAndZoom(point, 16);      
+            var marker = new BMap.Marker(point);        // 创建标注      
+              map.addOverlay(marker);      
+              var sContent =
+        "<h4 style='margin:0 0 5px 0;padding:0.2em 0'><%=shop.name%></h4>" + 
+        "<img style='float:right;margin:4px' id='imgDemo' src='<%=image_path shop.shopimages.first.imgurl%>' width='139' height='104' title='#{shop.name}/>" + 
+        "<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'><%=shop.explain%></p>" + 
+        "<a href='lookdetails/<%=shop._id%>'>查看</a>"+
+        "</div>";
+    var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象      
+
+
+ marker.addEventListener("click", function(){      
+  this.openInfoWindow(infoWindow);      // 打开信息窗口
+    document.getElementById('imgDemo').onload = function (){
+           infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+       }
+});
+          }      
+      }, "深圳市");
+<%end%>
+    var map1 = new BMap.Map("container");      
+var point = new BMap.Point(114.133163, 22.547152);      
+map1.centerAndZoom(point, 15);  // 编写自定义函数，创建标注     
+function addMarker(point, index){  // 创建图标对象     
+  var myIcon = new BMap.Icon("http://api.map.baidu.com/mapCard/img/location.gif",   
+      new BMap.Size(14, 23), {      
+       // 指定定位位置。     
+       // 当标注显示在地图上时，其所指向的地理位置距离图标左上      
+       // 角各偏移7像素和25像素。您可以看到在本例中该位置即是     
+       // 图标中央下端的尖角位置。      
+       anchor: new BMap.Size(7, 25),        
+      });        
+ // 创建标注对象并添加到地图     
+  var marker = new BMap.Marker(point, {icon: myIcon});      
+  map.addOverlay(marker);      
+ }      
+
+
+
+
+
+ 
+
+    </script>

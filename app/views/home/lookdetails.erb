@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+   <%=javascript_include_tag  "mui.min"%>
+    <%=stylesheet_link_tag "mui.min"%>
+     <%=stylesheet_link_tag "base"%>
+      <%=stylesheet_link_tag "club"%>
+</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		  <h1 class="mui-title"><%=@shop.name%></h1>
+		</header>
+		
+		<div class="mui-content" style="background: #FFFFFF;">
+			<div class="club_img">
+			
+				<%=image_tag "#{@shop.shopimages.where(title: 'details').first.imgurl}",{width: "100%" ,height: "240px"}%>
+			</div>
+			<div class="club_op">
+				<dl>
+					<span class="club_op_left"><%=@shop.name%></span>
+					
+					<%=image_tag "u20 (1).png",:class=>"club_op_right"%>
+				</dl>
+				<dl>
+					<span class="club_op_left"><%=truncate(@shop.explain,length: 30)%></span>
+					<%=image_tag "u22.png",:class=>"club_op_right"%>
+				</dl>
+				<dl>
+					<span class="club_op_left">按摩会所之一</span>
+					<%=image_tag "u24.png",:class=>"club_op_right"%>
+				</dl>
+			</div>
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						服务项目
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						技师风采
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						我的订单
+					</a>
+				</li>
+			</ul>	
+		</div>
+	</body>
+</html>

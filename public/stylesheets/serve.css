@@ -1,0 +1,33 @@
+.serve_list{
+	height: 50px;
+	line-height: 50px;
+	color: #999999;
+	background: #FFFFFF;
+	border-bottom: 1px solid #CCCCCC;
+}
+.one{
+	width: 30%;
+	float: left;
+}
+.two{
+	width: 30%;
+	float: left;
+}
+.three{
+	width: 40%;
+	float: right;
+	text-align: center;
+}
+.serve_item{
+	margin-top: 10px;
+}
+.serve_top,.serve_bottom{
+	display: block;
+	height: 30px;
+	margin-top: -10px;
+	font-size: 14px;
+}
+.serve_right{
+	padding: 2px;
+	border-left: 1px solid #CCCCCC;
+}

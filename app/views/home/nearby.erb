@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+   
+    <%=javascript_include_tag  "mui.min"%>
+    <%=javascript_include_tag  "jquery"%>
+    <%=stylesheet_link_tag "mui.min"%>
+     <%=stylesheet_link_tag "base"%>
+      <%=stylesheet_link_tag "index"%>
+  
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	  <h1 class="mui-title">附近会所</h1>
+	</header>
+	
+	<div class="mui-content">
+		<input type="text" name="" id="" class="mui-serach" placeholder="店名、区域"/>
+		<div id="segmentedControl" class="mui-segmented-control">
+			<a class="mui-control-item" href="#item1mobile">
+					最近
+				</a>
+			<a class="mui-control-item" href="#item2mobile">
+					价格
+				</a>
+			<a class="mui-control-item" href="#item3mobile">
+					人气
+				</a>
+		</div>
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell mui-hidden">cared
+				<div id="M_Toggle" class="mui-switch mui-active">
+					<div class="mui-switch-handle"></div>
+				</div>
+			</li>
+			<% @shops.each do |shop|%>
+			<li class="mui-table-view-cell mui-media">
+				<a href="lookdetails/<%=shop._id%>">
+					
+					<%= image_tag "#{shop.shopimages.first.imgurl}" ,:class=>"mui-media-object mui-pull-left"%>
+					<div class="mui-media-body" >
+						<%=shop.name%>
+						<p class='mui-ellipsis'>人均：￥300</p>
+						<p class='mui-ellipsis'>距离：300M</p>
+					</div>
+				</a>
+			</li>
+			<%end%>
+			
+		</ul>
+	</div>
+</body>
+</html>

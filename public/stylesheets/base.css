@@ -1,0 +1,15 @@
+*{
+	margin:0;
+	padding: 0;
+}
+.mui-bar{
+	background: #7FCDED;
+}
+.mui-bar .mui-title{
+	color: #FFF;
+	font-size: 25px;
+	font-weight: bold;
+}
+.clear{
+	clear: both;
+}

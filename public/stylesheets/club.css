@@ -1,0 +1,22 @@
+.club_op{
+	height: 120px;
+	color: #666666;
+}
+.club_op dl{
+	font-size: 18px;
+	height: 40px;
+	line-height: 40px;
+}
+.club_op_left{
+	float: left;
+}
+.club_op_right{
+	float: right;
+	width: 20px;
+	height: 20px;
+	margin-right: 20px;
+	margin-top: 10px;
+}
+.mui-table-view{
+	color: #666666;
+}
