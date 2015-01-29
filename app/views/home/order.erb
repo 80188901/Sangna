@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+       <%=javascript_include_tag  "mui.min"%>
+  <%=javascript_include_tag  "jquery"%>
+    <%=stylesheet_link_tag "mui.min"%>
+     <%=stylesheet_link_tag "base"%>
+      <%=stylesheet_link_tag "buy"%>
+      <script>
+
+      function createorder(shop_id,server_id){
+    	
+      	$.get("/orders/create",{shop_id:shop_id,server_id:server_id},function(obj){
+      		  window.location.href=obj;
+      	});
+      };
+      </script>
+</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		  <h1 class="mui-title">购买项目</h1>
+		</header>
+		
+		<div class="mui-content" style="background: #FFFFFF;">
+			<div id="club">
+				<span class="w_club"><%=@server.shop.name%></span>
+				<img src="<%=image_path 'u20.png'%>" class="localtion"/>
+			</div>
+			
+			<div class="serve_list">
+				<dl>
+					<h3 class="serve_item"><%=@server.name%></h3>
+				</dl>
+				<dl>
+					<span class="serve_time">￥<%=@server.price%>/<%=@server.usetime%>分钟</span>
+					<br class="clear" />
+					<span class="serve_favorable"><%=@server.remark%></span>
+				</dl>
+			</div>
+			<button class="buy_submit" onclick="createorder('<%=@server.shop._id%>','<%=@server._id%>')">立即购买</button>
+
+
+		</div>
+	</body>
+</html>

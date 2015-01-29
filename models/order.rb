@@ -1,15 +1,14 @@
-class Technician
+class Order
   include Mongoid::Document
   include Mongoid::Timestamps # adds created_at and updated_at fields
-belongs_to :shop
-has_many :orders
+ belongs_to :shop
+ belongs_to :server
+ belongs_to :technician
+ belongs_to :room
   # field <name>, :type => <type>, :default => <value>
-  field :name, :type => String
-  field :number, :type => Integer
-  field :gender, :type => Boolean
-  field :situation, :type => Boolean
-  field :wordtime,:type=>Integer
-
+   field :applydate, :type=>DateTime
+   field :remark, :type=>String
+ field :isuse,:type=>Boolean,:default=>false
   # You can define indexes on documents using the index macro:
   # index :field <, :unique => true>
 

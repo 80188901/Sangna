@@ -31,7 +31,7 @@
 				</dl>
 				<dl>
 					<span class="club_op_left">按摩会所之一</span>
-					<%=image_tag "u24.png",:class=>"club_op_right"%>
+					<a href="/home/map?shop_address=<%=@shop.address%>"><%=image_tag "u24.png",:class=>"club_op_right"%></a>
 				</dl>
 			</div>
 			<ul class="mui-table-view mui-table-view-chevron">
@@ -46,7 +46,7 @@
 					</a>
 				</li>
 				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
+					<a class="mui-navigate-right" href="/home/myorders?shop_id=<%=@shop._id%>">
 						我的订单
 					</a>
 				</li>

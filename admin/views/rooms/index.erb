@@ -1,6 +1,6 @@
 <ul class="nav nav-tabs">
-  <li class=active> <%= link_to tag_icon(:list, pat(:list)), url(:servers, :index) %></li>
-  <li> <%= link_to tag_icon(:plus, pat(:new)), url(:servers, :new) %></li>
+  <li class=active> <%= link_to tag_icon(:list, pat(:list)), url(:rooms, :index) %></li>
+  <li> <%= link_to tag_icon(:plus, pat(:new)), url(:rooms, :new) %></li>
 </ul>
 <div class=tabs-content>
   <table id=list class="table table-striped table-hover table-condensed">
@@ -25,8 +25,8 @@
                   <div class=arrow></div>
                   <h3 class=popover-title><%= pat(:delete_selected_title) %></h3>
                   <div class=popover-content>
-                    <% form_tag url(:servers, :destroy_many), :method => :delete do %>
-                      <%=hidden_field_tag :server_ids, :'data-delete-many-ids' => true %>
+                    <% form_tag url(:rooms, :destroy_many), :method => :delete do %>
+                      <%=hidden_field_tag :room_ids, :'data-delete-many-ids' => true %>
                       <%=submit_tag pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small' %>
                       <div class='btn btn-default btn-small cancel'><%= pat(:cancel) %></div>
                     <% end %>
@@ -36,39 +36,37 @@
             </ul>
           </div>
         </th>
-                <th class=header> <%= mat(:server, :created_at) %></th>
-                <th class=header> <%= mat(:server, :updated_at) %></th>
-                <th class=header> <%= mat(:server, :shop_id) %></th>
-                <th class=header> <%= mat(:server, :name) %></th>
-                <th class=header> <%= mat(:server, :price) %></th>
-                <th class=header> <%= mat(:server, :remark) %></th>
-                <th class=header> <%= mat(:server, :usetime) %></th>
+                <th class=header> <%= mat(:room, :created_at) %></th>
+                <th class=header> <%= mat(:room, :updated_at) %></th>
+                <th class=header> <%= mat(:room, :shop_id) %></th>
+                <th class=header> <%= mat(:room, :number) %></th>
+                <th class=header> <%= mat(:room, :size) %></th>
+                <th class=header> <%= mat(:room, :isuse) %></th>
                 <th class="header list-row-action-header"></th>
       </tr>
     </thead>
 
     <tbody>
-      <% @servers.each do |server| %>
+      <% @rooms.each do |room| %>
         <tr class=list-row>
           <td class="list-column list-selectable">
-            <%= check_box_tag 'server_ids[]', :value => server.id, :class => 'list-selectable-checkbox' %>
+            <%= check_box_tag 'room_ids[]', :value => room.id, :class => 'list-selectable-checkbox' %>
            </td>
-          <td class=list-column> <%= time_ago_in_words server.created_at %></td>
-          <td class=list-column> <%= time_ago_in_words server.updated_at %></td>
-          <td class=list-column> <%= server.shop_id %> </td>
-          <td class=list-column> <%= server.name %> </td>
-          <td class=list-column> <%= server.price %> </td>
-          <td class=list-column> <%= server.remark %> </td>
-          <td class=list-column> <%= server.usetime %> </td>
+          <td class=list-column> <%= time_ago_in_words room.created_at %></td>
+          <td class=list-column> <%= time_ago_in_words room.updated_at %></td>
+          <td class=list-column> <%= room.shop_id %> </td>
+          <td class=list-column> <%= room.number %> </td>
+          <td class=list-column> <%= room.size %> </td>
+          <td class=list-column> <%= room.isuse %> </td>
           <td class="list-column list-row-action">
             <div class='list-row-action-wrapper'>
-               <%= link_to tag_icon(:edit), :href => url(:servers, :edit, :id => server.id), :rel => :tooltip, :title => "#{pat(:edit)} server", :class => 'list-row-action-wrapper-link' %>
-               <%= link_to tag_icon('trash-o'), :rel => :tooltip, :title => "#{pat(:delete)} server", :class => 'list-row-action-delete-one list-row-action-wrapper-link' %>
+               <%= link_to tag_icon(:edit), :href => url(:rooms, :edit, :id => room.id), :rel => :tooltip, :title => "#{pat(:edit)} room", :class => 'list-row-action-wrapper-link' %>
+               <%= link_to tag_icon('trash-o'), :rel => :tooltip, :title => "#{pat(:delete)} room", :class => 'list-row-action-delete-one list-row-action-wrapper-link' %>
                <div class="popover list-row-action-popover-delete-one left">
                  <div class=arrow> </div>
-                 <h3 class=popover-title><%= pat(:delete, :model => "server") %></h3>
+                 <h3 class=popover-title><%= pat(:delete, :model => "room") %></h3>
                  <div class=popover-content>
-                   <%- form_tag url(:servers, :destroy, :id => server.id), :method => :delete do %>
+                   <%- form_tag url(:rooms, :destroy, :id => room.id), :method => :delete do %>
                      <%= submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small' %>
                      <div class="btn btn-default btn-small cancel"><%= pat(:cancel) %></div>
                    <% end %>

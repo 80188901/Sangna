@@ -18,7 +18,19 @@
     <script type="text/javascript">  
 
     var map = new BMap.Map("l-map");  
-    map.centerAndZoom(new BMap.Point(114.133663, 22.547752), 20);  
+    <%if params[:shop_address]!=""%>
+    var myGeo = new BMap.Geocoder();      
+// 将地址解析结果显示在地图上，并调整地图视野    
+
+myGeo.getPoint("<%=params[:shop_address]%>", function(point){
+    if(point){
+      map.centerAndZoom(point, 16);   
+    }
+},'深圳市');      
+    <%else%>
+     map.centerAndZoom(new BMap.Point(114.133663, 22.547752), 20);  
+    <%end%>
+   
    var zoomControl=new BMap.ZoomControl();  
 map.addControl(zoomControl);//添加缩放控件  
 var scaleControl=new BMap.ScaleControl();  
@@ -51,9 +63,10 @@ myGeo.getPoint("<%=shop.address%>", function(point){
           }      
       }, "深圳市");
 <%end%>
-    var map1 = new BMap.Map("container");      
+     
+ 
 var point = new BMap.Point(114.133163, 22.547152);      
-map1.centerAndZoom(point, 15);  // 编写自定义函数，创建标注     
+map.centerAndZoom(point, 15);  // 编写自定义函数，创建标注     
 function addMarker(point, index){  // 创建图标对象     
   var myIcon = new BMap.Icon("http://api.map.baidu.com/mapCard/img/location.gif",   
       new BMap.Size(14, 23), {      
@@ -67,11 +80,5 @@ function addMarker(point, index){  // 创建图标对象
   var marker = new BMap.Marker(point, {icon: myIcon});      
   map.addOverlay(marker);      
  }      
-
-
-
-
-
- 
 
     </script>

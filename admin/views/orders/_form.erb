@@ -1,0 +1,65 @@
+<% error = @order.errors.include?(:shop_id) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :shop_id, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :shop_id, :class => 'form-control input-xlarge input-with-feedback', :autofocus => true %>
+    <span class='help-inline'><%= error ? f.error_message_on(:shop_id) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @order.errors.include?(:server_id) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :server_id, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :server_id, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:server_id) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @order.errors.include?(:technician_id) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :technician_id, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :technician_id, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:technician_id) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @order.errors.include?(:room_id) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :room_id, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :room_id, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:room_id) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @order.errors.include?(:applydate) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :applydate, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :applydate, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:applydate) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @order.errors.include?(:remark) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :remark, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :remark, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:remark) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @order.errors.include?(:isuse) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :isuse, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.check_box :isuse, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:isuse) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  <%= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue' %>
+  &nbsp;
+  <%= link_to pat(:cancel), url(:orders, :index), :class => 'btn btn-default' %>
+</div>

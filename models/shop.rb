@@ -4,6 +4,8 @@ class Shop
 has_many :shopimages
 has_many :servers
 has_many :technicians
+has_many :orders
+has_many :room
   # field <name>, :type => <type>, :default => <value>
   field :name, :type => String
   field :phone, :type => String

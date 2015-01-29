@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <title></title>
-  <%=javascript_include_tag  "mui.min"%>
-   
+ <%=javascript_include_tag  "mui.min"%>
+  <%=javascript_include_tag  "jquery"%>
     <%=stylesheet_link_tag "mui.min"%>
      <%=stylesheet_link_tag "base"%>
-      <%=stylesheet_link_tag "tel"%>
+      <%=stylesheet_link_tag "chose_tel"%>
 </head>
 <body>
 	<header class="mui-bar mui-bar-nav">
-	  <h1 class="mui-title">技师风采</h1>
+	  <h1 class="mui-title">选择技师</h1>
 	</header>
 	
 	<div class="mui-content" style="background: #FFFFFF;margin-top: 10px;">
@@ -32,14 +32,16 @@
 			</dl>
 			<dl class="three">
 			<%if technician.situation%>
-				<button class="three_submit">立即预约</button>
+				<a href="/home/sure_order?order_id=<%=@order._id%>&technician_id=<%=technician._id%>&choicesize=<%=@choicesize%>"><button class="three_submit">选定</button></a>
 				<%else%>
 				<button class="three_free">将在<%=technician.wordtime%>分钟后空闲</button>
+				<button class="three_submit three_status">排队</button>
 				<%end%>
 			</dl>
 		</div>
 		<div class="clear"></div>
 		<%end%>
+		
 	</div>
 	</body>
 </html>

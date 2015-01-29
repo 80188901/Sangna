@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+       <%=javascript_include_tag  "mui.min"%>
+  <%=javascript_include_tag  "jquery"%>
+    <%=stylesheet_link_tag "mui.min"%>
+     <%=stylesheet_link_tag "base"%>
+      <%=stylesheet_link_tag "order"%>
+          
+
+</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		  <h1 class="mui-title">我的订单</h1>
+		</header>
+		
+		<div class="mui-content" style="background: #FFFFFF;">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell mui-hidden">cared
+						<div id="M_Toggle" class="mui-switch mui-active">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+					<%@orders.each do |order|%>
+					<li class="mui-table-view-cell mui-media">
+						<a href="#">
+						
+							<%=image_tag order.shop.shopimages.first.imgurl,:class=>'mui-media-object mui-pull-left'%>
+							<div class="mui-media-body">
+								<%=order.server.name%>￥<%=order.server.price%>
+								<p class='mui-ellipsis'><%=order.server.remark%></p>
+						<a href="/home/appointment?order_id=<%=order._id%>"><button style="" class="make_submit" >立即预约</button></a>
+							</div>
+						</a>
+					</li>
+					<%end%>
+				</ul>
+		</div>
+	</body>
+</html>

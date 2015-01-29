@@ -22,12 +22,20 @@
     <span class='help-inline'><%= error ? f.error_message_on(:price) : "Ex: a simple text" %></span>
   </div>
 </fieldset>
-<% error = @server.errors.include?(:remaek) %>
+<% error = @server.errors.include?(:remark) %>
 <fieldset class='control-group <%= error ? 'has-error' : ''%>'>
-  <%= f.label :remaek, :class => 'control-label' %>
+  <%= f.label :remark, :class => 'control-label' %>
   <div class='controls'>
-    <%= f.text_field :remaek, :class => 'form-control input-xlarge input-with-feedback' %>
-    <span class='help-inline'><%= error ? f.error_message_on(:remaek) : "Ex: a simple text" %></span>
+    <%= f.text_field :remark, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:remark) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @server.errors.include?(:usetime) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :usetime, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :usetime, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:usetime) : "Ex: a simple text" %></span>
   </div>
 </fieldset>
 

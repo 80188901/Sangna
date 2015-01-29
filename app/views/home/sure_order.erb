@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+<%=javascript_include_tag  "mui.min"%>
+  <%=javascript_include_tag  "jquery"%>
+    <%=stylesheet_link_tag "mui.min"%>
+     <%=stylesheet_link_tag "base"%>
+      <%=stylesheet_link_tag "sure_order"%>
+</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		  <h1 class="mui-title">订单预约</h1>
+		</header>
+		
+		<div class="mui-content" style="background: #FFFFFF;">
+				<ul class="mui-table-view" style="margin:0">
+					<li class="mui-table-view-cell mui-media">
+						<a href="#">
+							<%=image_tag @order.shop.shopimages.first.imgurl,:class=>'mui-media-object mui-pull-left'%>
+							<div class="mui-media-body">
+								<h4 class="serve_club"><%=@order.shop.name%></h4>
+							</div>
+						</a>
+					</li>
+				</ul>
+				<div class="item_list">
+					<dl class="item_left">项目</dl>
+					<dl class="item_right">
+						<span class="item_top"><%=@order.server.name%>￥<%=@order.server.price%></span>
+						<span class="item_bottom"><%=@order.server.remark%></span>
+					</dl>
+				</div>
+				<div class="item_list">
+					<dl class="item_left">项目</dl>
+					<dl class="item_right">
+					<%if @order.technician.gender%>
+				
+				<%= image_tag 'man.png',:class=>'item_right_img'%>
+				<%else%>
+				<%= image_tag 'woman.png',:class=>'item_right_img'%>
+				<%end%>
+					
+						<span class="item_right_num"><%=@order.technician.number%></span>
+						<span class="item_right_name"><%=@order.technician.name%></span>
+					</dl>
+				</div>
+				<div class="item_list">
+					<dl class="item_left">项目</dl>
+					<dl class="item_right">未配房</dl>
+				</div>
+				
+				<a href="/home/distribution_room?order_id=<%=@order._id%>&choicesize=<%=@choicesize%>"><button class="capacity_submit">点击智能配房</button></a>
+		</div>
+	</body>
+</html>
