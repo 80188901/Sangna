@@ -34,7 +34,7 @@
 			<%if technician.situation%>
 				<button class="three_submit">立即预约</button>
 				<%else%>
-				<button class="three_free">将在<%=technician.wordtime%>分钟后空闲</button>
+				<button class="three_free">将在<%=technician.wordtime.strftime("%H:%M")%>后空闲</button>
 				<%end%>
 			</dl>
 		</div>

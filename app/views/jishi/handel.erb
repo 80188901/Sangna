@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	
+	<%=javascript_include_tag  "jquery"%>
+  	  <%=stylesheet_link_tag "jishi/footer"%>
+   	  <%=stylesheet_link_tag "jishi/basic"%>
+   	   <%=stylesheet_link_tag "jishi/handel"%>
+   	   <%=stylesheet_link_tag "jishi/handel_public"%>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+			$(function(){
+				$("#deal").click(function(){
+					$("#bgdiv").show();//遮罩层
+					$("#mymodel").css("display","block").css("position","fixed").css("top","20%").css("left","10%").css("z-index","600");
+					$("#button_suer").click(function(){//弹出框确定
+						$("#mymodel,#bgdiv,#deal").hide();
+						$("#down_clock,#add_clock").show();
+					})
+					$("#button_cancel").click(function(){//弹出框取消
+						$("#mymodel,#bgdiv").hide();
+					})
+				})
+				$("#down_clock").click(function(){
+					$("#bgdiv").show();
+					$("#mymodel").css("display","block").css("position","fixed").css("top","20%").css("left","10%").css("z-index","600");
+					$("#tip").show();
+					$("#button_suer").click(function(){
+						$("#mymodel,#bgdiv,#down_clock,#add_clock").hide();
+					})
+					$("#button_cancel").click(function(){
+						$("#mymodel,#bgdiv").hide();
+					})
+				})
+			})
+	</script>
+</head>
+<body>
+<div id="wrap">
+<div id="bgdiv"></div>
+	<div id="header">
+	<a href="javascript:history.back(-1)"><img src="<%=image_path 'jishi/left.png'%>" alt="*" id="left_png" height="35px"></a>
+		<span><%=@order.technician.name%>，你好</span>
+	<a href="search.html"><img src="<%=image_path 'jishi/search.png'%>" alt="*" id="right_png" height="35px"></a>		
+	</div>
+	<div id="content">
+		<dl>
+			<dd>手牌&nbsp;:&nbsp;<span><%=@order.technician.number%></span></dd>
+		</dl>
+		<dl>
+			<dd>项目&nbsp;:&nbsp;<span><%=@order.server.name%></span></dd>
+		</dl>
+		<dl>
+			<dd>昵称&nbsp;:&nbsp;<span><%=@order.technician.name%></span></dd>
+		</dl>
+		<dl>
+			<dd>费用&nbsp;:&nbsp;<span><%=@order.server.price%></span></dd>
+		</dl>
+		<dl>
+			<dd>房间&nbsp;:&nbsp;<span><%=@order.room.number%></span></dd>
+		</dl>
+		<dl>
+			<dd>时间&nbsp;:&nbsp;<span><%=@order.server.usetime%></span></dd>
+		</dl>
+		<dl>
+		<%if (@order.technician.wordtime.to_i-Time.now.to_i)>@order.server.usetime*60%>
+			
+			<dd>剩余&nbsp;:&nbsp;<span><%=@order.server.usetime%></span></dd>
+			<%else%>
+			<dd>剩余&nbsp;:&nbsp;<span><%=(@order.technician.wordtime.to_i-Time.now.to_i-300)/60%></span></dd>
+			<%end%>
+		</dl>
+	</div>
+	<div id="deal">上钟</div>
+	<div id="vessel">
+		<a href="add_clock.html"><div id="add_clock">加钟</div></a>
+		<div id="down_clock">下钟</div>
+	</div>
+	<div id="undo"></div>
+</div>
+<div id="footer">
+			<a href="index.html"><span class="a">&nbsp;&nbsp;&nbsp;</span></a>
+			<span class="b">&nbsp;&nbsp;&nbsp;</span>
+			<span class="c">&nbsp;&nbsp;&nbsp;</span>
+			<span class="d">&nbsp;&nbsp;&nbsp;</span>
+			<span class="e">&nbsp;&nbsp;&nbsp;</span>
+</div>
+<div id="mymodel">
+		<div id="mybody">
+		<input type="text" name="" id="tip" placeholder="小费" style="margin-bottom:10px;display:none;">
+		<input type="password" name="" id="psd" placeholder="请输入密码">
+		<input type="submit" value="确&nbsp;&nbsp;定" class="button" id="button_suer">
+		<input type="button" class="button" value="取&nbsp;&nbsp;消" id="button_cancel">
+		</div>
+</div>
+</body>
+</html>

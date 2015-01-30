@@ -34,7 +34,7 @@
 			<%if technician.situation%>
 				<a href="/home/sure_order?order_id=<%=@order._id%>&technician_id=<%=technician._id%>&choicesize=<%=@choicesize%>"><button class="three_submit">选定</button></a>
 				<%else%>
-				<button class="three_free">将在<%=technician.wordtime%>分钟后空闲</button>
+				<button class="three_free">将在<%=technician.wordtime.strftime("%H:%M")%>后空闲</button>
 				<button class="three_submit three_status">排队</button>
 				<%end%>
 			</dl>

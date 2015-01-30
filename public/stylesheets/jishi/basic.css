@@ -1,0 +1,25 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #D2D2D2;
+	font-family: "微软雅黑";
+}
+#wrap{
+	width: 100%;
+	margin: 0 auto;
+}  
+
+ul{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+input[type=text],input[type=button],input[type=submit],input[type=date]{
+	-webkit-appearance:none;
+}
+img{
+	border: none;
+}

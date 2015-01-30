@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	
+	   
+ 	   <%=javascript_include_tag  "jquery"%>
+  	  <%=stylesheet_link_tag "jishi/footer"%>
+   	  <%=stylesheet_link_tag "jishi/basic"%>
+   	   <%=stylesheet_link_tag "jishi/index"%>
+   	   
+   	   <script type="text/javascript">
+   	   $(function(){
+   	   	<%if flash[:error]%>
+   	   	alert('<%=flash[:error]%>')
+   	   	<%end%>
+   	   	a=setInterval(function(){
+
+   	   		$.get("/jishi/checknew?technician_id=<%=@technician._id%>",{},function(obj){
+   	   		if(obj=="true"){
+   	   			$("#new").html("●");
+   	   			clearInterval(a);
+   	   		}
+   	   	});
+   	   	},1000);
+   	   })
+   	   </script>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<span><%=@technician.name%>，你好</span>
+	<a href="search.html"><img src="<%=image_path 'jishi/search.png'%>" alt="*" id="right_png" height="35px"></a>	
+	</div>
+	<div id="banner">
+		<div></div>
+	</div>
+	<div id="content">
+		<div id="handel"><span class="handel">&nbsp;</span>上钟下钟<b id="new" style="color:red"></b></div>
+		<div id="arrange"><span class="arrange">&nbsp;</span>安排服务</div>
+		<div id="repast"><span class="repast">&nbsp;</span>餐饮服务</div>
+		<div id="change"><span class="change">&nbsp;</span>更改服务</div>
+	</div>
+	<div id="personal"><span class="personal">&nbsp;</span>个人中心</div>
+	<div id="undo"></div>
+</div>
+<div id="footer">
+			<a href="file:///android_asset/www/goods.html"><span class="a">&nbsp;&nbsp;&nbsp;</span></a>
+			<span class="b">&nbsp;&nbsp;&nbsp;</span>
+			<span class="c">&nbsp;&nbsp;&nbsp;</span>
+			<span class="d">&nbsp;&nbsp;&nbsp;</span>
+			<span class="e">&nbsp;&nbsp;&nbsp;</span>
+</div>
+<script type="text/javascript">
+$(function(){
+	$("#handel").click(function(){
+		window.location.assign('/jishi/handel?technician_id=<%=@technician._id%>');
+	})
+	$("#arrange").click(function(){
+		window.location.assign('arrange.html');
+	})
+	$("#repast").click(function(){
+		window.location.assign('repast.html');
+	})
+	$("#change").click(function(){
+		window.location.assign('change.html');
+	})
+	$("#personal").click(function(){
+		window.location.assign('/jishi/personal?technician_id=<%=@technician._id%>');
+	})
+})
+</script>
+</body>
+</html>

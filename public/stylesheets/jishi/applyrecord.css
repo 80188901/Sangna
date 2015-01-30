@@ -1,0 +1,9 @@
+#content{
+	margin: 10px 5px;
+	background: #fff;
+}
+#content td{
+	height: 50px;
+	font-size: 20px;
+	border-bottom: 1px solid #DCDCDC;
+}

@@ -1,0 +1,30 @@
+#content{
+	margin: 10px 5px;
+	background: #fff;
+}
+#content dl{
+	width: 96%;
+	margin: 0 auto;
+	height: 70px;
+	font-size: 20px;
+	line-height: 70px;
+	border-bottom: 1px solid #eee;
+}
+#psd,#deal{
+	margin: 10px 5px;
+	height: 60px;
+}
+#psd input{
+	height: 60px;
+	width: 100%;
+	border: none;
+	font-size: 25px;
+}
+#deal input{
+	height: 60px;
+	width: 100%;
+	border: none;
+	background: #007131;
+	color: #fff;
+	font-size: 25px;
+}

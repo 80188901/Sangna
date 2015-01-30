@@ -1,0 +1,73 @@
+#choice{
+	height: 50px;
+	background: #636363;	
+}
+#choice ul{
+	height: 50px;
+}
+#choice li{
+	float: left;
+	font-size: 20px;
+	line-height: 50px;
+	color: #fff;
+}
+#choice li.choice_left{
+	width: 30%;
+	text-indent: 10px;
+}
+#choice li.choice_middle{
+	width: 45%;
+}
+#content{
+	background: #fff;
+}
+#content dl{
+	height: 60px;
+	position: relative;
+}
+#content dd{
+	font-size: 20px;
+}
+#content dd._up{
+	height: 30px
+	float: left;
+	position: absolute;
+	top: 5%;
+}
+#content dd._down{
+	float: left;
+	height: 30px;
+	position: absolute;
+	bottom: 0;
+}
+#content dd._right{
+	float: right;
+	position: absolute;
+	top: 25%;
+	right: 10%;
+}
+#content dd input{
+	width: 30px;
+	text-align: center;
+	font-size: 20px;
+}
+#deal{
+	height: 60px;
+	margin: 10px  5px;
+	background: #E56F15;
+	text-align: center;
+	line-height: 60px;
+	font-size: 25px;
+	color: #fff;
+	letter-spacing: 10px;
+}
+#psd{
+	margin: 10px 5px;
+	height: 60px;
+}
+#psd input{
+	height: 60px;
+	width: 100%;
+	border: none;
+	font-size: 25px;
+}

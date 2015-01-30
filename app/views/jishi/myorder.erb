@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	   <%=javascript_include_tag  "jquery"%>
+  	  <%=stylesheet_link_tag "jishi/footer"%>
+   	  <%=stylesheet_link_tag "jishi/basic"%>
+   	   <%=stylesheet_link_tag "jishi/personal_public"%>
+   	      <%=stylesheet_link_tag "jishi/myorder"%>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+	<a href="javascript:history.back(-1)"><img src="<%=image_path 'jishi/left.png'%>" alt="*" id="left_png" height="35px"></a>
+		<span><%=@orders.first.technician.name%>，你好</span>
+	<a href="search.html"><img src="<%=image_path 'jishi/search.png'%>" alt="*" id="right_png" height="35px"></a>		
+	</div>
+	<div id="one">近1日订单查询</div>
+	<div id="senven">近7日订单查询</div>
+	<div id="thirsty">近30日订单查询</div>
+	<div id="date">
+		<input type="date" name="date" id="date_left"><span>到</span><input type="date" name="date2" id="date_right">
+	</div>
+	<div id="deal">查询</div>
+	<div id="content">
+		<table cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td>日期</td>
+				<td>手牌号</td>
+				<td>房间号</td>
+			</tr>
+			<%@orders.each do |order|%>
+			<tr class="order" onclick="orderdetails('<%=order._id%>')">
+				<td><%=order.applydate.strftime('%x')%></td>
+				<td><%=order.technician.number%></td>
+				<td><%=order.room.number%></td>
+			</tr>
+			<%end%>
+		</table>
+	</div>
+	<div id="undo"></div>
+</div>
+<div id="footer">
+			<a href="index.html"><span class="a">&nbsp;&nbsp;&nbsp;</span></a>
+			<span class="b">&nbsp;&nbsp;&nbsp;</span>
+			<span class="c">&nbsp;&nbsp;&nbsp;</span>
+			<span class="d">&nbsp;&nbsp;&nbsp;</span>
+			<span class="e">&nbsp;&nbsp;&nbsp;</span>
+</div>
+</body>
+<script type="text/javascript">
+		$(function(){
+		$("#one").click(function(){
+		
+			window.location.assign('/jishi/myorder?day=1&technician_id=<%=@orders.first.technician._id%>');
+		})
+		$("#senven").click(function(){
+		
+			window.location.assign('/jishi/myorder?day=7&technician_id=<%=@orders.first.technician._id%>');
+		})
+		$("#thirsty").click(function(){
+
+			window.location.assign('/jishi/myorder?day=30&technician_id=<%=@orders.first.technician._id%>');
+		})
+	})
+	function orderdetails(order_id){
+window.location.assign('/jishi/orderdetails?order_id='+order_id);
+	}
+</script>
+</html>	

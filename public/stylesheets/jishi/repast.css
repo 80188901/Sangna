@@ -1,0 +1,102 @@
+#choice{
+	height: 50px;
+	background: #636363;	
+}
+#choice ul{
+	height: 50px;
+}
+#choice li{
+	float: left;
+	font-size: 20px;
+	line-height: 50px;
+	color: #fff;
+}
+#choice li.choice_left{
+	width: 30%;
+	text-indent: 10px;
+}
+#choice li.choice_middle{
+	width: 45%;
+}
+#content{
+	height: 400px;
+}
+#content #left{
+	width: 20%;
+	height: 400px;
+	float: left;
+}
+#content #right{
+	width: 80%;
+	height: 400px;
+	float: left;
+	overflow: auto;
+}
+#content #left ul{
+	margin-left: 10%;
+}
+#content #left ul li{
+	background: #fff;
+	text-align: center;
+	margin-top: 5px;
+	height: 40px;
+	font-size: 20px;
+	line-height: 40px;
+}
+#content #left .active{
+	background: #FDC500;
+	color: #fff;
+}
+#content #right .menu_content,.menu1_content,.menu2_content,.menu3_content,.menu4_content,.menu5_content,.menu6_content	{
+	height: 90px;
+	background: #fff;
+	border-bottom: 1px dotted #eee;
+}
+#content #right .menu_content dl,.menu1_content dl,.menu2_content dl,.menu3_content dl,.menu4_content dl,.menu5_content dl,.menu6_content dl{
+	width: 170px;
+	height: 90px;
+	display: block;
+}
+#content #right .menu_content dd ,.menu1_content dd,.menu2_content dd,.menu3_content dd,.menu4_content dd,.menu5_content dd,.menu6_content dd{
+	margin-top: 5px;
+	margin-left: 5px;
+	float: left;
+	display: block;
+}
+#content #right .bill{
+	height: 45px;
+	background: #EEEEEE;
+	font-size: 25px;
+}
+#content .bill input[type=button]{
+	background: #727171;
+	border: none;
+	color: #fff;
+	height: 28px;
+}
+#content #right .bill dl{
+	display: block;
+	height: 45px;
+	width: 95%;
+	margin: 0 auto;
+}
+#content #right .bill dd{
+	display: block;
+	height: 45px;
+	line-height: 45px;
+}
+.bill .left{
+	display: block;
+	height: 45px;
+	float: left;
+}
+.bill .right{
+	float: right;
+	height: 45px;
+	line-height: 45px;
+}
+#content #right .bill input{
+	width: 30px;
+	text-align: center;
+	font-size: 20px;
+}

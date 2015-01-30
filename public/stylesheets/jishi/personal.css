@@ -1,0 +1,52 @@
+
+#banner{
+	margin: 10px 5px;
+	height: 145px;
+	background:#009A44 url(../../images/jishi/circle2.png) no-repeat 50% 50%;
+	position: relative;
+}
+#banner div{
+	height: 145px;
+	background: url(../../images/jishi/portrait.png) no-repeat 50% 50%;
+}
+#content{
+	margin: 10px 5px;
+	background: #fff;
+}
+#content dl{
+	width: 96%;
+	margin: 0 auto;
+	height: 50px;
+	font-size: 20px;
+	line-height: 50px;
+	border-bottom: 1px solid #eee;
+}
+#order{
+	height: 60px;
+	margin: 0px  5px;
+	background: #007131;
+	text-align: center;
+	line-height: 60px;
+	font-size: 20px;
+	color: #fff;
+	letter-spacing: 10px;
+}
+#nav{
+	height: 100px;
+	margin: 5px 5px;
+	background: #D2D2D2;
+}
+#nav ul li{
+	float: left;
+	width: 49%;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	background: #32B16C;
+	margin-bottom: 5px;
+	color: #fff;
+	font-style: 15px;
+}
+#nav .near{
+    margin-left: 1.6%;
+}

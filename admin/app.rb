@@ -33,10 +33,14 @@ module Sanna
 
     access_control.roles_for :admin do |role|
       role.project_module :orders, '/orders'
+     
+      role.project_module :technicians, '/technicians'
+      role.project_module :technician_infos, '/technician_infos'
+      
+     
    
       role.project_module :rooms, '/rooms'
-      role.project_module :technicians, '/technicians'
-  
+      
    
      
       role.project_module :shops, '/shops'

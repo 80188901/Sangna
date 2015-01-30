@@ -29,7 +29,7 @@ get :lookdetails ,:with=>:id do
   end
   get :map  do
     
-    @shops=Shop.all();
+   @shops=Shop.all();
     render :map
   end
   get :server ,:with=>:id do
@@ -40,6 +40,13 @@ get :lookdetails ,:with=>:id do
   get :technician,:with=>:id do
 shop=Shop.find(params[:id])
 @technicians=shop.technicians
+@technicians.each do |technician|
+  if !technician.situation
+     if technician.wordtime.to_i<Time.now.to_i
+        technician.update_attributes(situation:true,wordtime:" ")
+     end
+  end
+end
 render :technician
   end
   get :order,:with=>:id do
@@ -60,7 +67,13 @@ get :choicehuman do
   
   @technicians=@order.shop.technicians
   @choicesize=params[:choicesize]
-
+@technicians.each do |technician|
+  if !technician.situation
+     if technician.wordtime.to_i<Time.now.to_i
+        technician.update_attributes(situation:true,wordtime:" ")
+     end
+  end
+end
   render :choicehuman
   end
 
@@ -72,11 +85,17 @@ get :choicehuman do
   end
   get :distribution_room do
     room=Room.where(size: params[:choicesize],:isuse=>0).first
-    
-    @order=Order.find(params[:order_id])
-    @order.update_attributes(room_id:room._id,isuse:true)
-    @order.technician.update_attributes(situation:false,wordtime:@order.server.usetime)
+      @order=Order.find(params[:order_id])
+    if !room
+     flash[:error]='不好意思！房间已经用完'
+     redirect(url(:home,:sure_order,:order_id=>params[:order_id],:technician_id=>@order.technician._id)) 
+    end
+  
+    @order.update_attributes(room_id:room._id,isuse:true,isnow:true,usedate:Time.now)
+    @order.technician.update_attributes(situation:false,wordtime:Time.now+@order.server.usetime.minute+5.minute)
 
+      puts 'a'
+      puts @order.isnow
     @order.room.update_attribute(:isuse, @order.room.isuse+1)
 
     render :distribution_room

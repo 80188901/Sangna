@@ -1,0 +1,50 @@
+#undo{
+	height: 120px;
+	background: #D2D2D2;
+}
+#footer{
+	width: 100%;
+	margin-top: 50px;
+	height: 60px;
+	line-height: 60px;
+	background: #3E3A39;
+	text-align: center;
+	position: fixed;
+	bottom: 0px;
+}
+#footer span{
+	font-size:80px;
+	cursor: pointer;
+	border: none;
+	background: none;
+}
+#footer .a{
+	background: url(../../images/jishi/i.png) no-repeat -50px -220px;
+}
+#footer .b{
+	background: url(../../images/jishi/i.png) no-repeat -140px -220px;
+}
+#footer .c{
+	background: url(../../images/jishi/i.png) no-repeat -230px -220px;
+}
+#footer .d{
+	background: url(../../images/jishi/i.png) no-repeat -320px -220px;
+}
+#footer .e{
+	background: url(../../images/jishi/i.png) no-repeat -410px -220px;
+}
+#footer .a:hover{
+	background: url(../../images/jishi/i.png) no-repeat -50px -300px;
+}
+#footer .b:hover{
+	background: url(../../images/jishi/i.png) no-repeat -140px -300px;
+}
+#footer .c:hover{
+	background: url(/../../images/jishi/i.png) no-repeat -230px -300px;
+}
+#footer .d:hover{
+	background: url(../../images/jishi/i.png) no-repeat -320px -300px;
+}
+#footer .e:hover{
+	background: url(../../images/jishi/i.png) no-repeat -410px -300px;
+}

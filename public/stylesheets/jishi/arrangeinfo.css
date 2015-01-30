@@ -1,0 +1,61 @@
+#header{
+	width: 100%;
+	height: 69px;
+	background: #84CCC9;
+	position: relative;
+	text-align: center;
+}
+#header span{
+	color: #fff;
+	font-size: 20px;
+	line-height: 69px;
+	height: 69px;
+}
+#left_png{
+	position: absolute;
+	left: 1%;
+	top: 30%;
+}
+#right_png{
+	position: absolute;
+	right: 1%;
+	top: 30%;
+}
+#room{
+	background: #13B5B1;
+	height: 50px;
+	color: #fff;
+	font-size: 20px;
+	line-height: 50px;
+	text-align: center;
+	margin-top: 10px;
+}
+#caution{
+	margin-top: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	height: 60px;
+	background: #fff;
+	border: 1px solid #F39800;
+	font-size: 18px;
+	color: #EC701F;
+	overflow: hidden;
+}
+#content{
+	margin: 10px 5px;
+	background: #fff;
+}
+#content dl{
+	width: 96%;
+	margin: 0 auto;
+	height: 50px;
+	font-size: 20px;
+	line-height: 50px;
+}
+#content dl.line{
+	border-bottom: 1px solid #DFDFDF;
+}
+#undo{
+	height: 120px;
+	background: #D2D2D2;
+}

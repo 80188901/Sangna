@@ -1,0 +1,72 @@
+#one,#senven,#thirsty{
+	background: #fff;
+	margin: 0px 5px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 25px;
+}
+#one{
+	margin-bottom: 10px;
+	margin-top: 15px;
+}
+#senven{
+	margin-bottom: 10px;
+}
+#thirsty{
+	margin-bottom: 20px;
+}
+#date{
+	margin: 0 5px;
+	height: 40px;
+	background: #32B16C;
+	/*text-align: center;*/
+	/*color: #fff;*/
+}
+#date input{
+	width: 40%;
+	margin-top: 4px;
+	height: 30px;
+	line-height: 30px;
+	background: #fff;
+	/*border-radius: 5px;*/
+	border: none;
+}
+#date span{
+	margin-left: 4%;
+	color: #fff;
+}
+#date_left{
+	margin-left: 4%;
+}
+#date_right{
+	margin-left: 4%;
+}
+#deal{
+	height: 60px;
+	margin: 10px  5px;
+	background: #32B16C;
+	text-align: center;
+	line-height: 60px;
+	font-size: 25px;
+	color: #fff;
+	letter-spacing: 10px;
+}
+#content{
+	margin: 0 5px;
+	background: #fff;
+}
+#content td{
+	height: 50px;
+	font-size: 20px;
+	border-bottom: 1px solid #DCDCDC;
+	text-indent: 20px;
+}
+.deails{
+	height: 30px;
+	font-size: 20px;
+	background: #007130;
+	border: none;
+	color: #fff;
+}
+

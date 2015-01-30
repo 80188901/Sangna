@@ -1,0 +1,24 @@
+#content{
+	margin: 10px 5px;
+	background: #fff;
+}
+#content dl{
+	width: 96%;
+	margin: 0 auto;
+	height: 50px;
+	font-size: 20px;
+	line-height: 50px;
+	border-bottom: 1px solid #eee;
+}
+#content span.icon{
+	background: url(../../images/jishi/icon.png) -200px -110px;
+}
+#content button{
+	background: #32B16C;
+	font-size: 20px;
+	color: #fff;
+	border: none;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 4px;
+}

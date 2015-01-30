@@ -1,0 +1,129 @@
+#caution{
+	margin-top: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	height: 60px;
+	background: #fff;
+	border: 1px solid #F39800;
+	font-size: 18px;
+	color: #EC701F;
+	overflow: auto;
+}
+#search{
+	height: 60px;
+	background: #D2D2D2;
+	margin:0px 5px;
+	margin-top: 10px;
+}
+#search ul li{
+	float: left;
+}
+#search .le{
+	width: 65%;
+}
+#search .ri{
+	margin-left: 5%;
+	width: 30%;
+}
+#search input{
+	width: 100%;
+	height: 40px;
+	border: none;
+	font-size: 20px;
+}
+#search input[type=text]{
+	text-indent: 20px;
+}
+#search input[type=submit]{
+	background: #0168B7;
+	color: #fff;
+}
+#content{
+	background: #fff;
+	margin: 0px 5px;
+}
+#content td{
+	font-size: 20px;
+	height: 50px;
+	text-indent: 4px;
+	border-bottom: 1px solid #D2D2D2;
+}
+#content td.line{
+	border-bottom: 10px solid #D2D2D2;
+}
+#content input[type=text]{
+	width: 60px;
+	height: 30px;
+	font-size: 20px;
+}
+#content input[type=button]{
+	width: 60px;
+	height: 34px;
+	color: #fff;
+	font-size: 20px;
+	background: #0168B7;
+	border: none;
+}
+#content select{
+	width: 60px;
+	height: 34px;
+	font-size: 20px;
+	background: #fff;
+}
+#content #order{
+	background: #7CCEF4;
+	color: #fff;
+	border: none;
+}
+#deal{
+	height: 60px;
+	margin: 5px  5px;
+	background: #004986;
+	text-align: center;
+	line-height: 60px;
+	font-size: 25px;
+	color: #fff;
+	letter-spacing: 10px;
+}
+#bgdiv{
+	background: #151515; 
+	position:absolute; 
+	z-index:99; 
+	left:0;
+	top:0;
+	display:none;
+	opacity:0.5;
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+	width: 100%;
+	height: 800px;
+}
+#mymodel ,#mymodel2{
+		width: 80%;	
+		background: #DCDCDC;
+		height: 165px;
+		display: none;
+	}
+.psd{
+		display: block;
+		width: 90%;
+		height: 50px;
+		margin: 0 auto;
+		font-size: 25px;
+		border: 0px;
+	}
+	#mymodel .button,#mymodel2 .button2{
+		width: 40%;
+		margin-top: 20px;
+		background: #0168B7;
+		border: 0px;
+		color: #fff;
+		height: 50px;
+		line-height: 50px;
+		font-size: 25px;
+	    margin-left: 6%;
+		text-align: center;
+	}
+	#mybody,#mybody2{
+		padding-top: 20px;
+	}

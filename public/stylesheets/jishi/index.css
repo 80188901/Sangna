@@ -1,0 +1,83 @@
+#header{
+	width: 100%;
+	height: 69px;
+	background: #3498DB;
+	position: relative;
+	text-align: center;
+}
+#header span{
+	color: #fff;
+	font-size: 20px;
+	line-height: 69px;
+	height: 69px;
+}
+#right_png{
+	position: absolute;
+	right: 1%;
+	top: 20%;
+}
+#banner{
+	margin: 10px 5px;
+	height: 145px;
+	background:#00469C url(../../images/jishi/circle2.png) no-repeat 50% 50%;
+	position: relative;
+}
+#banner div{
+	height: 145px;
+	background: url(../../images/jishi/portrait.png) no-repeat 50% 50%;
+}
+#content{
+	margin: 0px 5px;
+	background: #fff;
+}
+#content div{
+	font-size: 20px;
+	line-height: 60px;
+	height: auto;
+	font-weight: normal;
+	background: url(../../images/jishi/right-x.png) no-repeat right center;
+	cursor: pointer;
+}
+#content #handel,#arrange,#repast{
+	border-bottom: 1px solid #DCDCDC;
+	cursor: pointer;
+}
+#content span{
+	width: 100px;
+	display: inline-block;
+}
+.handel{
+	background: url(../../images/jishi/i.png) no-repeat -10px -163px;	
+}
+.arrange{
+	background: url(../../images/jishi/i.png) no-repeat -90px -163px;
+
+}
+.repast{
+	background: url(../../images/jishi/i.png) no-repeat -185px -163px;
+
+}
+.change{
+	background: url(../../images/jishi/i.png) no-repeat -285px -163px;
+}
+.personal{
+	width: 100px;
+	height: auto;
+	display: inline-block;
+	background: url(../../images/jishi/i.png) no-repeat -385px -163px;
+}
+#personal{
+	font-size: 20px;
+	background: #fff url(../../images/jishi/right-x.png) no-repeat right center;
+	margin: 10px 5px;
+	line-height: 60px;
+	height: auto;
+	cursor: pointer;
+
+}
+#undo{
+	height: 90px;
+	background: ##D2D2D2;
+}
+
+

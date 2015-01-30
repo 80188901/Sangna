@@ -9,6 +9,14 @@
     <%=stylesheet_link_tag "mui.min"%>
      <%=stylesheet_link_tag "base"%>
       <%=stylesheet_link_tag "sure_order"%>
+      <script type="text/javascript">
+      $(function(){
+
+      	<%if flash[:error]%>
+      	alert( '<%=flash[:error]%>');
+      	<%end%>
+      })
+      </script>
 </head>
 	<body>
 		<header class="mui-bar mui-bar-nav">

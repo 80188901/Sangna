@@ -1,0 +1,57 @@
+<% error = @technician_info.errors.include?(:technician_id) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :technician_id, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :technician_id, :class => 'form-control input-xlarge input-with-feedback', :autofocus => true %>
+    <span class='help-inline'><%= error ? f.error_message_on(:technician_id) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @technician_info.errors.include?(:birthday) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :birthday, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :birthday, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:birthday) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @technician_info.errors.include?(:nativeplace) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :nativeplace, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :nativeplace, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:nativeplace) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @technician_info.errors.include?(:style) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :style, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :style, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:style) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @technician_info.errors.include?(:classes) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :classes, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :classes, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:classes) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @technician_info.errors.include?(:serverstyle) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :serverstyle, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :serverstyle, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:serverstyle) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  <%= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue' %>
+  &nbsp;
+  <%= link_to pat(:cancel), url(:technician_infos, :index), :class => 'btn btn-default' %>
+</div>

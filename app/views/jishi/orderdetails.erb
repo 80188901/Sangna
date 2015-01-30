@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+   <%=javascript_include_tag  "jquery"%>
+  	  <%=stylesheet_link_tag "jishi/footer"%>
+   	  <%=stylesheet_link_tag "jishi/basic"%>
+   	   <%=stylesheet_link_tag "jishi/orderdetails"%>
+   	      <%=stylesheet_link_tag "jishi/handel_public"%>
+	
+	
+	<script type="text/javascript">
+	$(function(){
+		$("#header").css('background','#32B16C');
+		$width=$('#content button').width()+10;
+		$('#content button').css('width',$width);
+	})
+	</script>
+</head>
+<body>
+<div id="wrap">
+<div id="bgdiv"></div>
+	<div id="header">
+	<a href="javascript:history.back(-1)"><img src="<%=image_path 'jishi/left.png'%>" alt="*" id="left_png" height="35px"></a>
+		<span><%=@order.technician.name%>，你好</span>
+	<a href="search.php"><img src="<%=image_path 'jishi/search.png'%>" alt="*" id="right_png" height="35px"></a>		
+	</div>
+	<div id="content">
+		<dl>
+			<dd>订单号码&nbsp;:&nbsp;<span><%=@order._id%></span></dd>
+		</dl>
+		<dl>
+			<dd>手牌号码&nbsp;:&nbsp;<span><%=@order.technician.number%></span></dd>
+		</dl>
+		<dl>
+			<dd>选择项目&nbsp;:&nbsp;<span><%=@order.server.name%></span></dd>
+		</dl>
+		<dl>
+			<dd>项目收费&nbsp;:&nbsp;<span><%=@order.server.price%></span></dd>
+		</dl>
+		<dl>
+			<dd>下单时间&nbsp;:&nbsp;<span><%=@order.applydate%></span></dd>
+		</dl>
+		<dl>
+			<dd>下单人员&nbsp;:&nbsp;<span>XXXXXXXX</span></dd>
+		</dl>
+		<dl>
+			<dd>服务技师&nbsp;:&nbsp;<span><%=@order.technician.name%></span></dd>
+		</dl>
+		<dl>
+			<dd>服务时长&nbsp;:&nbsp;<span><%=@order.server.usetime%></span></dd>
+		</dl>
+		<dl>
+			<dd>房间位置&nbsp;:&nbsp;<span><%=@order.room.number%></span></dd>
+		</dl>
+		<dl>
+		<%if @order.isuse%>
+			<dd>订单状态&nbsp;:&nbsp;<span><button>已成功</button></span></dd>
+			<%else%>
+			<dd>订单状态&nbsp;:&nbsp;<span><button>未服务</button></span></dd>
+			<%end%>
+		</dl>
+	</div>
+	<div id="undo"></div>
+</div>
+<div id="footer">
+			<a href="index.html"><span class="a">&nbsp;&nbsp;&nbsp;</span></a>
+			<span class="b">&nbsp;&nbsp;&nbsp;</span>
+			<span class="c">&nbsp;&nbsp;&nbsp;</span>
+			<span class="d">&nbsp;&nbsp;&nbsp;</span>
+			<span class="e">&nbsp;&nbsp;&nbsp;</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+#content{
+	margin: 10px 5px 0 5px;
+	background: #fff;
+}
+#content dl{
+	height: 300px;
+	background: #fff;
+	overflow: auto;
+}
+#content dt{
+	font-size: 15px;
+	text-indent: 5px;
+}
+#content dd{
+	font-size: 18px;
+	text-indent: 20px;
+}
+dt{
+	margin-top: 10px;
+}
+#content dt.date{
+	color: #0055FE;
+}
+#content dt.own{
+	color: pink;
+}
+#message{
+	margin: 5px 5px;
+}
+#message input{
+	width: 100%;
+	height: 30px;
+	background: #007B2F;
+	border: none;
+	color: #fff;
+	font-size: 20px;
+}
+/*#content dd.line{
+	border-bottom: 1px solid #eee;
+}*/

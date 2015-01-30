@@ -1,0 +1,27 @@
+#header{
+	width: 100%;
+	height: 69px;
+	background: #32B16C;
+	position: relative;
+	text-align: center;
+}
+#header span{
+	color: #fff;
+	font-size: 20px;
+	line-height: 69px;
+	height: 69px;
+}
+#left_png{
+	position: absolute;
+	left: 1%;
+	top: 20%;
+}
+#right_png{
+	position: absolute;
+	right: 1%;
+	top: 20%;
+}
+#undo{
+	height: 120px;
+	background: #D2D2D2;
+}

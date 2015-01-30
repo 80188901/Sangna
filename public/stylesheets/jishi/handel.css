@@ -1,0 +1,46 @@
+#content{
+	margin: 10px 5px;
+	background: #fff;
+}
+#content dl{
+	width: 96%;
+	margin: 0 auto;
+	height: 50px;
+	font-size: 20px;
+	line-height: 50px;
+	border-bottom: 1px solid #eee;
+}
+#deal{
+	height: 60px;
+	margin: 0px  5px;
+	background: #920784;
+	text-align: center;
+	line-height: 60px;
+	font-size: 25px;
+	color: #fff;
+	letter-spacing: 10px;
+}
+#vessel{
+	height: 60px;
+	margin: 10px 5px;
+}
+#add_clock,#down_clock{
+	background: #920784;
+	text-align: center;
+	line-height: 60px;
+	font-size: 25px;
+	color: #fff;
+	letter-spacing: 10px;
+	width: 49%;
+	float: left;
+	display: none;
+}
+#down_clock{
+	margin-left: 2%;
+}
+#down_clock{
+	float: left;
+}
+
+
+
