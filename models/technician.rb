@@ -10,6 +10,8 @@ has_one :technician_info
   field :gender, :type => Boolean
   field :situation, :type => Boolean
   field :wordtime,:type=>Time
+  field :password,:type=>String
+  field :iswork,:type=>Boolean,:default=>false
 
   # You can define indexes on documents using the index macro:
   # index :field <, :unique => true>

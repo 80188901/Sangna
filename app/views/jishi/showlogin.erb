@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	  <%=stylesheet_link_tag "jishi/basic"%>
+   	   <%=stylesheet_link_tag "jishi/login"%>
+</head>
+<body>
+<div id="wrap">
+	<div id="nav"><img src="<%=image_path 'jishi/11.png'%>" alt="" width="100%" height="220px"></div>
+	<div id="banner"><img src="<%=image_path 'jishi/22.png'%>" alt="" width="100%" height="75px"></div>
+	<div id="content">
+
+		<% form_tag '/jishi/login'   do%>
+			<table cellspacing="0" cellpadding="0">
+			<tr><td><%=flash_tag :error%></td></tr>
+				<tr>
+					<td class='line'><%=text_field_tag :username,:id=>'username',:placeholder=>'账户'%></td>
+				</tr>
+				<tr>
+					<td class='b-line'><%=password_field_tag :password,:id=>'psd',:placeholder=>'密码'%></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="登&nbsp;&nbsp;录" id="but"></td>
+				</tr>
+			</table>
+		<% end %>
+		<ul>
+			<li class="set"><a href="#">设置</a></li>
+		</ul>
+	</div>
+	<div id="footer">
+		<p>深圳天地网电子商务有限公司版权拥</p>
+		<p>版本信息如：XXX桑拿管理系统V1.0</p>
+	</div>
+</div>
+</body>
+</html>

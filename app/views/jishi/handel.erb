@@ -10,16 +10,29 @@
    	  <%=stylesheet_link_tag "jishi/basic"%>
    	   <%=stylesheet_link_tag "jishi/handel"%>
    	   <%=stylesheet_link_tag "jishi/handel_public"%>
-	<script type="text/javascript" src="js/jquery.js"></script>
+	
 	<script type="text/javascript">
 			$(function(){
 				$("#deal").click(function(){
 					$("#bgdiv").show();//遮罩层
 					$("#mymodel").css("display","block").css("position","fixed").css("top","20%").css("left","10%").css("z-index","600");
 					$("#button_suer").click(function(){//弹出框确定
-						$("#mymodel,#bgdiv,#deal").hide();
-						$("#down_clock,#add_clock").show();
-					})
+						var psd=$("#psd").val();
+						$.get("upclock",{password:psd,order_id:'<%=@order._id%>'},function(obj){
+							if(obj=='true'){
+								$("#mymodel,#bgdiv,#deal").hide();
+								$("#down_clock,#add_clock").show();
+								$("#psd").val("");
+							}
+							else
+							{
+								alert("密码错误");
+
+							}
+						});
+						
+						
+					});
 					$("#button_cancel").click(function(){//弹出框取消
 						$("#mymodel,#bgdiv").hide();
 					})
@@ -29,12 +42,27 @@
 					$("#mymodel").css("display","block").css("position","fixed").css("top","20%").css("left","10%").css("z-index","600");
 					$("#tip").show();
 					$("#button_suer").click(function(){
-						$("#mymodel,#bgdiv,#down_clock,#add_clock").hide();
-					})
+						var tip=$("#tip").val();
+						var psd=$("#psd").val();
+						$.get("downclock",{password:psd,order_id:'<%=@order._id%>',tip:tip},function(obj){
+							if(obj=='true'){
+							window.location.assign('/jishi/<%=@order.technician._id%>');
+							}
+							else
+							{
+								alert("密码错误");
+							}
+						});
+						
+					});
 					$("#button_cancel").click(function(){
 						$("#mymodel,#bgdiv").hide();
 					})
 				})
+				<%if @order.technician.iswork%>
+					$("#mymodel,#bgdiv,#deal").hide();
+					$("#down_clock,#add_clock").show();
+				<%end%>
 			})
 	</script>
 </head>
@@ -66,11 +94,11 @@
 			<dd>时间&nbsp;:&nbsp;<span><%=@order.server.usetime%></span></dd>
 		</dl>
 		<dl>
-		<%if (@order.technician.wordtime.to_i-Time.now.to_i)>@order.server.usetime*60%>
+		<%if !@order.technician.iswork%>
 			
 			<dd>剩余&nbsp;:&nbsp;<span><%=@order.server.usetime%></span></dd>
 			<%else%>
-			<dd>剩余&nbsp;:&nbsp;<span><%=(@order.technician.wordtime.to_i-Time.now.to_i-300)/60%></span></dd>
+			<dd>剩余&nbsp;:&nbsp;<span><%=(@order.technician.wordtime.to_i-Time.now.to_i)/60%></span></dd>
 			<%end%>
 		</dl>
 	</div>

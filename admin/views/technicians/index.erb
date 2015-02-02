@@ -44,6 +44,8 @@
                 <th class=header> <%= mat(:technician, :gender) %></th>
                 <th class=header> <%= mat(:technician, :situation) %></th>
                 <th class=header> <%= mat(:technician, :wordtime) %></th>
+                <th class=header> <%= mat(:technician, :password) %></th>
+                <th class=header> <%= mat(:technician, :iswork) %></th>
                 <th class="header list-row-action-header"></th>
       </tr>
     </thead>
@@ -62,6 +64,8 @@
           <td class=list-column> <%= technician.gender %> </td>
           <td class=list-column> <%= technician.situation %> </td>
           <td class=list-column> <%= technician.wordtime %> </td>
+          <td class=list-column> <%= technician.password %> </td>
+          <td class=list-column> <%= technician.iswork %> </td>
           <td class="list-column list-row-action">
             <div class='list-row-action-wrapper'>
                <%= link_to tag_icon(:edit), :href => url(:technicians, :edit, :id => technician.id), :rel => :tooltip, :title => "#{pat(:edit)} technician", :class => 'list-row-action-wrapper-link' %>

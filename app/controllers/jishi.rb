@@ -18,6 +18,41 @@ Sanna::App.controllers :jishi do
   # get '/example' do
   #   'Hello world!'
   # end
+  get :showlogin do
+    render :showlogin
+  end
+  post :login do
+     @technician=Technician.where(name:params[:username],password:params[:password]).first
+     if @technician
+        redirect(url("jishi/#{@technician._id}")) 
+      else
+        flash.now[:error]='用户名或密码错误'
+        render "jishi/showlogin"
+     end
+  end
+  get :upclock do
+    order=Order.find(params[:order_id])
+    technician=order.technician
+    if technician.password==params[:password]
+      technician.update_attributes(iswork:true,wordtime:Time.now+order.server.usetime.to_i.minute)
+      render :html,'true'
+    else
+      render :html,'false'
+    end
+  end
+get :downclock do
+     order=Order.find(params[:order_id])
+    technician=order.technician
+    if technician.password==params[:password]
+      technician.update_attributes(iswork:false,wordtime:" ",situation:true)
+      order.room.update_attribute(:isuse,0)
+      order.update_attributes(isnow:false,remark:params[:tip])
+
+      render :html,'true'
+    else
+      render :html,'false'
+    end
+end
     get :personal do
     @technician=Technician.find(params[:technician_id])
     render :personal
@@ -27,7 +62,7 @@ Sanna::App.controllers :jishi do
     @orders=Order.where(technician_id:params[:technician_id])
   else
 
-    @orders=Order.where(technician_id:params[:technician_id]).where(applydate:(Time.now.midnight-params[:day].to_i.day)..(Time.now.midnight))
+    @orders=Order.where(technician_id:params[:technician_id]).where(applydate:(Time.now-params[:day].to_i.day)..(Time.now)).asc(:applydate)
 
   end
   
