@@ -4,7 +4,9 @@ module Sanna
     register Padrino::Helpers
 
     enable :sessions
-
+   get "/" do
+    redirect(url(:home,:nearby)) 
+   end
     ##
     # Caching support.
     #
