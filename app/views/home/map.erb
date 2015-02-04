@@ -44,14 +44,7 @@ myGeo.getPoint("<%=shop.address%>", function(point){
           if (point) {      
               map.centerAndZoom(point, 16);      
             var marker = new BMap.Marker(point);  
-             marker.setIcon(new BMap.Icon("<%=image_path shop.shopimages.first.imgurl%>",   
-      new BMap.Size(50, 50), {      
-       // 指定定位位置。     
-       // 当标注显示在地图上时，其所指向的地理位置距离图标左上      
-       // 角各偏移7像素和25像素。您可以看到在本例中该位置即是     
-       // 图标中央下端的尖角位置。      
-       anchor: new BMap.Size(7, 25),        
-      }));      // 创建标注      
+           
               map.addOverlay(marker);      
               var sContent =
         "<h4 style='margin:0 0 5px 0;padding:0.2em 0'><%=shop.name%></h4>" + 

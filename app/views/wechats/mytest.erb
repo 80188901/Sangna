@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新浪微博头部</title>
+	<%=javascript_include_tag  "jquery"%>
+
+</head>
+<body>
+	<div class="TouBu">
+		<div class="ZhuTi">
+			<div class="LoGo"></div>
+			<div class="Sousuo">
+				<!-- <input type="text" name="" id=""  style="margin-left:40px;height:25px;width:250px;float:left" class="pic_bg" > -->
+				<input class="Input1" type="text"  >
+				<a href="" class="glyphicon glyphicon-search" id="Sousuo_1"></a>
+			</div>
+			<div class="DaoHang">
+				<div class="DaoHang1">
+					<ul>
+						<li >
+							<a href="" class=""><em class="glyphicon glyphicon-book em" ></em><em class="em">首页</em></a>
+						</li>
+						<li>
+							<a href="" class=""><em class="glyphicon glyphicon-compressed" ></em><em >发现</em></a>
+						</li>
+						<li>
+							<a href="" class=""><em class="glyphicon glyphicon-fire" ></em><em >游戏</em></a>
+						</li>
+						<li>
+							<a href="" class=""><em class="glyphicon glyphicon-user" ></em><em >	个人信息</em></a>
+						</li>
+						<input type="button" value="test" id='test'/>
+					</ul>
+				</div>
+				<div class="DaoHang2">
+					<div class="YangShi">
+						<a  href="" id="xinxi" class="glyphicon glyphicon-envelope"></a>
+						<div class="YangShi1" id="xinxi1" style="display:none;">
+							<ul style="padding-left: 30px;">
+								<li><a href="">@我的</a></li>
+								<li><a href="">评论</a></li>
+								<li><a href="">赞</a></li>
+								<li class="line1"></li>
+								<li><a href="">私信</a></li>
+								<li><a href="">未关注人私信</a></li>
+								<li><a href="">群通知</a></li>
+								<li class="line2"></li>
+								<li style=" text-align: center;"><a href="">消息设置</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="YangShi">
+						<a style="float:left;" href="" id="shezhi" class="glyphicon glyphicon-cog"></a>
+						<div class="YangShi2" id="shezhi1" style="display:none;">
+							<ul style="padding-left: 10px;">
+								<li><a href="">帐号设置</a></li>
+								<li><a href="">V认证</a></li>
+								<li><a href="">帐号安全</a></li>
+								<li><a href="">隐私设置</a></li>
+								<li><a href="">消息设置</a></li>
+								<li><a href="">帮助中心</a></li>
+								<li class="line2"></li>
+								<li style=" text-align: center;" ><a href="">退出</a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- <div style="float:left;">
+						<a href="" ><em class="glyphicon glyphicon-new-window" title="试一下键盘N键"></em></a>
+					</div> -->
+					<div class="YangShi">
+						<a href="" ><em class="glyphicon glyphicon-new-window" title="试一下键盘N键"></em></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$(function(){
+		$("a").mouseenter(function(){
+			$(this).css("color","#fa7d3c")
+		})
+		$("a").mouseleave(function(){
+			$(this).css("color","")
+		})
+		$(".Input1").focus(function(){
+			$(this).css("borderColor","#fa7d3c")
+		})
+		$(".Input1").blur(function(){
+			$(this).css("borderColor","")
+		})
+		$("#xinxi").mouseenter(function(){
+			$("#xinxi1").show();
+		})
+		$("#xinxi1").mouseleave(function(){
+			$("#xinxi1").hide();
+		})
+		$("#shezhi").mouseenter(function(){
+			$("#shezhi1").show();
+		})
+		$("#shezhi1").mouseleave(function(){
+			$("#shezhi1").hide();
+		})
+
+
+		$("#test").click(function(){
+			alert("a");
+			$.get("/wechats/process_request",{},function(obj){
+				alert("b");
+			  alert(obj);
+			})
+				
+	
+		})
+			
+
+	})
+</script>
+
+
+</html>

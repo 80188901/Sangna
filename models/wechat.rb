@@ -13,30 +13,35 @@ class Wechat
   def  self.check_weixin_legality(timestamp,nonce,signature)
   array = [@weixin_token, timestamp, nonce].sort
   if signature != Digest::SHA1.hexdigest(array.join)
-    return true
-  else
     return false
+  else
+    return true
   end
 end
-def  self.event_view(eventkey)
-  
-end
+
 
 def  self.get_access_token
-    uri = URI('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxqufghje913scgsjr&secret=xlw5q31w92uejipg7tcylbhpexrsroak')
+
+ uri = URI('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx697eed6c8f1d5c78&secret=4ca9075efe702387bd92d6f2ce1fafe2')
 
 Net::HTTP.start(uri.host, uri.port,
   :use_ssl => uri.scheme == 'https') do |http|
   request = Net::HTTP::Get.new uri
 
   response = http.request request 
-  response_json=JSON.parse(response.options[:response_body])  
+
+  response_json=JSON.parse(response.body)  
+
   return response_json["access_token"]  
 end
 end
 
 def  self.menu_to_json
-      str=" {'button':[ { 'type':'view', 'name':'huisuo',  'url':'V1001_TODAY_MUSIC' },  {'type':'view', 'name':'jishi', 'url':'V1001_TODAY_MUSIC'  }, {'type':'view', 'name':'wode', 'url':'V1001_TODAY_MUSIC'}]}"
-      return str.to_json
+      str='{"button": [{"name":"会所","sub_button":[{"type":"view","name":"附近会所","url":'+
+      '"http://sangna.29mins.com"}]},{"type":"click","name":"我的","key":"my"},{"type":"view","name":"技师","url":'+
+        '"http://sangna.29mins.com/jishi/showlogin"}]}'
+        puts str
+
+      return str
   end
 end
