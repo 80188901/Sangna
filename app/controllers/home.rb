@@ -27,6 +27,10 @@ get :lookdetails ,:with=>:id do
   @shop=Shop.find(params[:id])
   render :lookdetails
   end
+  get :technician_detail do
+    @technician=Technician.find(params[:technician_id])
+    render :technician_detail
+  end
   get :map  do
     
    @shops=Shop.all();

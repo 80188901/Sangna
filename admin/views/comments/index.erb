@@ -1,6 +1,6 @@
 <ul class="nav nav-tabs">
-  <li class=active> <%= link_to tag_icon(:list, pat(:list)), url(:technician_infos, :index) %></li>
-  <li> <%= link_to tag_icon(:plus, pat(:new)), url(:technician_infos, :new) %></li>
+  <li class=active> <%= link_to tag_icon(:list, pat(:list)), url(:comments, :index) %></li>
+  <li> <%= link_to tag_icon(:plus, pat(:new)), url(:comments, :new) %></li>
 </ul>
 <div class=tabs-content>
   <table id=list class="table table-striped table-hover table-condensed">
@@ -25,8 +25,8 @@
                   <div class=arrow></div>
                   <h3 class=popover-title><%= pat(:delete_selected_title) %></h3>
                   <div class=popover-content>
-                    <% form_tag url(:technician_infos, :destroy_many), :method => :delete do %>
-                      <%=hidden_field_tag :technician_info_ids, :'data-delete-many-ids' => true %>
+                    <% form_tag url(:comments, :destroy_many), :method => :delete do %>
+                      <%=hidden_field_tag :comment_ids, :'data-delete-many-ids' => true %>
                       <%=submit_tag pat(:delete), :class =>'list-menu-popover-delete-selected-btn btn btn-danger btn-small' %>
                       <div class='btn btn-default btn-small cancel'><%= pat(:cancel) %></div>
                     <% end %>
@@ -36,43 +36,39 @@
             </ul>
           </div>
         </th>
-                <th class=header> <%= mat(:technician_info, :created_at) %></th>
-                <th class=header> <%= mat(:technician_info, :updated_at) %></th>
-                <th class=header> <%= mat(:technician_info, :technician_id) %></th>
-                <th class=header> <%= mat(:technician_info, :birthday) %></th>
-                <th class=header> <%= mat(:technician_info, :nativeplace) %></th>
-                <th class=header> <%= mat(:technician_info, :style) %></th>
-                <th class=header> <%= mat(:technician_info, :classes) %></th>
-                <th class=header> <%= mat(:technician_info, :serverstyle) %></th>
-                <th class=header> <%= mat(:technician_info, :imgurl) %></th>
+                <th class=header> <%= mat(:comment, :created_at) %></th>
+                <th class=header> <%= mat(:comment, :updated_at) %></th>
+                <th class=header> <%= mat(:comment, :technician_id) %></th>
+                <th class=header> <%= mat(:comment, :order_id) %></th>
+                <th class=header> <%= mat(:comment, :name) %></th>
+                <th class=header> <%= mat(:comment, :ctime) %></th>
+                <th class=header> <%= mat(:comment, :msg) %></th>
                 <th class="header list-row-action-header"></th>
       </tr>
     </thead>
 
     <tbody>
-      <% @technician_infos.each do |technician_info| %>
+      <% @comments.each do |comment| %>
         <tr class=list-row>
           <td class="list-column list-selectable">
-            <%= check_box_tag 'technician_info_ids[]', :value => technician_info.id, :class => 'list-selectable-checkbox' %>
+            <%= check_box_tag 'comment_ids[]', :value => comment.id, :class => 'list-selectable-checkbox' %>
            </td>
-          <td class=list-column> <%= time_ago_in_words technician_info.created_at %></td>
-          <td class=list-column> <%= time_ago_in_words technician_info.updated_at %></td>
-          <td class=list-column> <%= technician_info.technician_id %> </td>
-          <td class=list-column> <%= technician_info.birthday %> </td>
-          <td class=list-column> <%= technician_info.nativeplace %> </td>
-          <td class=list-column> <%= technician_info.style %> </td>
-          <td class=list-column> <%= technician_info.classes %> </td>
-          <td class=list-column> <%= technician_info.serverstyle %> </td>
-          <td class=list-column> <%= technician_info.imgurl %> </td>
+          <td class=list-column> <%= time_ago_in_words comment.created_at %></td>
+          <td class=list-column> <%= time_ago_in_words comment.updated_at %></td>
+          <td class=list-column> <%= comment.technician_id %> </td>
+          <td class=list-column> <%= comment.order_id %> </td>
+          <td class=list-column> <%= comment.name %> </td>
+          <td class=list-column> <%= comment.ctime %> </td>
+          <td class=list-column> <%= comment.msg %> </td>
           <td class="list-column list-row-action">
             <div class='list-row-action-wrapper'>
-               <%= link_to tag_icon(:edit), :href => url(:technician_infos, :edit, :id => technician_info.id), :rel => :tooltip, :title => "#{pat(:edit)} technician_info", :class => 'list-row-action-wrapper-link' %>
-               <%= link_to tag_icon('trash-o'), :rel => :tooltip, :title => "#{pat(:delete)} technician_info", :class => 'list-row-action-delete-one list-row-action-wrapper-link' %>
+               <%= link_to tag_icon(:edit), :href => url(:comments, :edit, :id => comment.id), :rel => :tooltip, :title => "#{pat(:edit)} comment", :class => 'list-row-action-wrapper-link' %>
+               <%= link_to tag_icon('trash-o'), :rel => :tooltip, :title => "#{pat(:delete)} comment", :class => 'list-row-action-delete-one list-row-action-wrapper-link' %>
                <div class="popover list-row-action-popover-delete-one left">
                  <div class=arrow> </div>
-                 <h3 class=popover-title><%= pat(:delete, :model => "technician_info") %></h3>
+                 <h3 class=popover-title><%= pat(:delete, :model => "comment") %></h3>
                  <div class=popover-content>
-                   <%- form_tag url(:technician_infos, :destroy, :id => technician_info.id), :method => :delete do %>
+                   <%- form_tag url(:comments, :destroy, :id => comment.id), :method => :delete do %>
                      <%= submit_tag pat(:delete), :class =>'list-row-action-popover-delete-one-btn btn btn-danger btn-small' %>
                      <div class="btn btn-default btn-small cancel"><%= pat(:cancel) %></div>
                    <% end %>

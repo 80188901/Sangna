@@ -1,0 +1,49 @@
+<% error = @comment.errors.include?(:technician_id) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :technician_id, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :technician_id, :class => 'form-control input-xlarge input-with-feedback', :autofocus => true %>
+    <span class='help-inline'><%= error ? f.error_message_on(:technician_id) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @comment.errors.include?(:order_id) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :order_id, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :order_id, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:order_id) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @comment.errors.include?(:name) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :name, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :name, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:name) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @comment.errors.include?(:ctime) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :ctime, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :ctime, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:ctime) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @comment.errors.include?(:msg) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :msg, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :msg, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:msg) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  <%= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue' %>
+  &nbsp;
+  <%= link_to pat(:cancel), url(:comments, :index), :class => 'btn btn-default' %>
+</div>

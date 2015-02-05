@@ -1,0 +1,50 @@
+#continer{
+	width: 94%;
+	margin: 0 auto;
+}
+.tel_name{
+	float: left;
+	color: #9E9E9E;
+}
+.tel_num{
+	float: right;
+	color: #9E9E9E;
+}
+.moment_button{
+	float: right;
+	background: #00FF1B;
+	color: #FFFFFF;
+	margin-bottom: 20px;
+}
+.tel_list dl {
+	float: left;
+	width: 50%;
+	font-size: 14px;
+	color: #9E9E9E;
+}
+.tel_list dl dd{
+	float: left;
+}
+.tel_list dl:nth-child(3){
+	width: 100%;
+}
+#phone_list dl dd{
+	color: #9E9E9E;
+	float: left;
+	width: 33%;
+	font-size: 14px;
+}
+#phone_list dl dd:nth-child(3){
+	text-align: right;
+}
+.evaluate{
+	margin: 10px 0 20px 0;
+	border: 1px solid #D7787A;
+}
+.monment_img{
+	width: 300px;
+	height: 150px;
+	display: block;
+	margin: 0 auto;
+}
+

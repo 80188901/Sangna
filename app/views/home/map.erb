@@ -7,12 +7,32 @@
     body, html,#l-map {width: 100%;height: 100%;overflow: hidden;hidden;margin:0;}  
     </style>  
     <script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=GiTogIkns0505WZWt7rZq04Y&v=1.0"></script>  
+
+    <script src="http://api.map.baidu.com/components?ak=GiTogIkns0505WZWt7rZq04Y&v=1.0"></script>
     <title>显示地图</title>  
 
     </head>  
     <body>  
     <div id="l-map"></div>  
-
+  <lbs-geo id="geo" city="深圳" enable-modified="false"></lbs-geo>
+  <script>
+  // 先获取元素
+  var lbsGeo = document.getElementById('geo');
+  //监听定位失败事件 geofail  
+  lbsGeo.addEventListener("geofail",function(evt){ 
+    alert("fail");
+  });
+  //监听定位成功事件 geosuccess
+  lbsGeo.addEventListener("geosuccess",function(evt){ 
+    console.log(evt.detail);
+    var address = evt.detail.address;
+    var coords = evt.detail.coords;
+    var x = coords.lng; 
+    var y = coords.lat;
+    alert("地址："+address);
+    
+  });
+  </script>
     </body>
     </html>  
     <script type="text/javascript">  
@@ -30,7 +50,11 @@ myGeo.getPoint("<%=params[:shop_address]%>", function(point){
     <%else%>
      map.centerAndZoom(new BMap.Point(114.133663, 22.547752), 20);  
     <%end%>
-   
+
+
+
+
+
    var zoomControl=new BMap.ZoomControl();  
 map.addControl(zoomControl);//添加缩放控件  
 var scaleControl=new BMap.ScaleControl();  
@@ -62,11 +86,10 @@ myGeo.getPoint("<%=shop.address%>", function(point){
        }
 });
           }      
-      }, "深圳市");
+      }, "深圳市"); 
 <%end%>
      
 
-  
  
 
     </script>

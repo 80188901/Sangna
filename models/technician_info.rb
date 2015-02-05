@@ -8,6 +8,7 @@ belongs_to :technician
       field :style, :type => String
         field :classes, :type => String
           field :serverstyle, :type => Array
+          field :imgurl,:type=>String
 
   # You can define indexes on documents using the index macro:
   # index :field <, :unique => true>

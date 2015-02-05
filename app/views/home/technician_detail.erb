@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+
+      <%=javascript_include_tag  "mui.min"%>
+    <%=stylesheet_link_tag "mui.min"%>
+     <%=stylesheet_link_tag "base"%>
+      <%=stylesheet_link_tag "teltails"%>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	  <h1 class="mui-title">技师风采</h1>
+	</header>
+	
+	<div class="mui-content" style="background: #FFFFFF;margin-top: 10px;">
+		<div id="continer">
+			<div class="mui-nav" style="border-bottom: 1px solid #CCCCCC;height: 30px; line-height: 30px;">
+				<span class="tel_name"><%=@technician.name%></span>
+				<span class="tel_num"><%=@technician.number%></span>
+				<br class="clear" />
+			</div>
+			
+			<%= image_tag "jishi/#{@technician.technician_info.imgurl}",:class=>'monment_img'%>
+			<button class="moment_button">立即预约</button>
+			<br class="clear" />
+			<div class="tel_list" style="border-bottom: 1px solid #CCCCCC;padding-bottom: 5px;">
+				<dl>
+					<dd>籍贯：</dd>
+					<dd><%=@technician.technician_info.nativeplace%></dd>
+				</dl>
+				<dl>
+					<dd>班组：</dd>
+					<dd><%=@technician.technician_info.classes%></dd>
+				</dl>
+				<dl>
+					<dd>生日：</dd>
+					<dd><%=@technician.technician_info.birthday%></dd>
+				</dl>
+				<dl>
+					<dd>服务项目：</dd>
+					<dd><%=@technician.technician_info.serverstyle%></dd>
+				</dl>
+				<br class="clear" />
+			</div>
+			<div id="phone_list">
+				<button class="evaluate">最近评价</button>
+				<%@technician.comments.each do |comment|%>
+				<dl>
+					<dd><%=comment.name%>：</dd>
+					<dd><%=comment.msg%></dd>
+					<dd><%=comment.order.server.name%></dd>
+				</dl>
+				<%end%>
+				
+			</div>
+		</div>	
+	</div>
+	</body>
+</html>

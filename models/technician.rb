@@ -4,6 +4,7 @@ class Technician
 belongs_to :shop
 has_many :orders
 has_one :technician_info
+has_many :comments
   # field <name>, :type => <type>, :default => <value>
   field :name, :type => String
   field :number, :type => Integer

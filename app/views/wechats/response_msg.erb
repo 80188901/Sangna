@@ -1,9 +1,9 @@
-<xml>
-<ToUserName><![CDATA[<%= params[:xml][:FromUserName]%>]]></ToUserName>
-<FromUserName><![CDATA[<%= params[:xml][:ToUsername]%>]]></FromUserName>
-<CreateTime><%=Time.now.to_i%></CreateTime>
-<MsgType><![CDATA[text]]></MsgType>
+	<xml>
+	<ToUserName><![CDATA[<%= @root.get_elements['FromUserName'][0][0]%>]]></ToUserName>
+	<FromUserName><![CDATA[<%= @root.get_elements['ToUsername'][0][0]%>]]></FromUserName>
+	<CreateTime><%=Time.now.to_i%></CreateTime>
+	<MsgType><![CDATA[text]]></MsgType>
 
-<Content><![CDATA[你好!]]></Content>
+	<Content><![CDATA[你好!]]></Content>
 
-</xml>
+	</xml>

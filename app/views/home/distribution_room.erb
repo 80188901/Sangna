@@ -36,12 +36,7 @@
 				<div class="item_list">
 					<dl class="item_left">项目</dl>
 					<dl class="item_right">
-						<%if @order.technician.gender%>
-				
-				<%= image_tag 'man.png',:class=>'item_right_img'%>
-				<%else%>
-				<%= image_tag 'woman.png',:class=>'item_right_img'%>
-				<%end%>
+						<%= image_tag "jishi/#{@order.technician.technician_info.imgurl}",:class=>'item_right_img'%>
 						<span class="item_right_num"><%=@order.technician.number%></span>
 						<span class="item_right_name"><%=@order.technician.name%></span>
 					</dl>

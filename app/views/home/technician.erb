@@ -17,14 +17,9 @@
 	
 	<div class="mui-content" style="background: #FFFFFF;margin-top: 10px;">
 	<%@technicians.each do |technician|%>
-		<div class="tel_list">
+		<a href="/home/technician_detail?technician_id=<%=technician._id%>"><div class="tel_list">
 			<dl class="one">
-			<%if technician.gender%>
-				
-				<%= image_tag 'man.png',:class=>'one_img'%>
-				<%else%>
-				<%= image_tag 'woman.png',:class=>'one_img'%>
-				<%end%>
+				<%= image_tag "jishi/#{technician.technician_info.imgurl}",:class=>'one_img'%>
 			</dl>
 			<dl class="two">
 				<span class="two_num"><%=technician.number%></span>
@@ -37,7 +32,7 @@
 				<button class="three_free">将在<%=technician.wordtime.strftime("%H:%M")%>后空闲</button>
 				<%end%>
 			</dl>
-		</div>
+		</div></a>
 		<div class="clear"></div>
 		<%end%>
 	</div>
