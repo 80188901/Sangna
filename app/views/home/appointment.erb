@@ -36,7 +36,11 @@
 				</div>
 				<ul class="mui-table-view">
 				  <li class="mui-table-view-cell">
+				  <%if !params[:technician_id]%>
 				    <a class="mui-navigate-right" href="/home/choicehuman?order_id=<%=@order._id%>&choicesize=1">
+				    <%else%>
+				       <a class="mui-navigate-right" href="/home/sure_order?order_id=<%=@order._id%>&choicesize=1&technician_id=<%=params[:technician_id]%>">
+				    <%end%>
 				      我希望单独一房
 				    </a>
 				  </li>

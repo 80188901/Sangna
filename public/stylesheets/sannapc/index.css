@@ -1,0 +1,162 @@
+#continer{
+	width: 90%;
+	margin:0 auto;
+}
+#header{
+	height: 80px;
+}
+.header_title{
+	line-height: 50px;
+}
+#left{
+	width: 20%;
+	height: 500px;
+	float: left;
+	background: #F2F2F2;
+}
+#middle{
+	float: left;
+	width: 56%;
+	height: 500px;
+	padding:0 2%;
+}
+#middle_top,#middle_bottom{
+	height: 240px;
+	
+}
+#middle_top{
+	background: #F2F2F2;
+}
+#middle_bottom{
+	margin-top: 20px;
+	background: #F2F2F2;
+}
+#right{
+	width: 20%;
+	float: left;
+	height: 500px;
+	background: #F2F2F2;
+}
+.header_right li{
+	border-radius: 5px;
+	text-align: center;
+	width: 120px;
+	height: 50px;
+	line-height: 50px;
+	float: right;
+	color: #fff;
+	font-size: 20px;
+	margin-top: -40px;
+}
+.serve{
+	margin: 0 10px;
+	background: #00FF00;
+}
+.handel{
+	margin: 0 10px;
+	background: #FF5300;
+}
+.res{
+	margin: 0 10px;
+	background: #F8FF00;
+}
+.tel{
+	margin: 0 10px;
+	background: #150067;
+}
+.room{
+	margin: 0 10px;
+	background: #E700FF;
+}
+.update{
+	background: #FF0000;
+}
+.nav{
+	width: 90%;
+	margin: 0 auto;
+	height: 40px;
+	border-bottom: 1px solid #CCCCCC;
+}
+.hand{
+	float: left;
+	line-height: 40px;
+}
+.location{
+	float: right;
+	line-height: 40px
+}
+.content{
+	width: 90%;
+	margin: 0 auto;
+}
+.content_list{
+	height: 60px;
+	line-height: 60px;
+}
+.content_list button{
+	margin-top: 20px;
+	width: 50px;
+	height: 30px;
+	border: 1px solid #33FF00;
+	border-radius: 5px;
+	background: #F2F2F2;
+}
+.content_list2 button{
+	margin-top: 20px;
+	width: 50px;
+	height: 30px;
+	border: 1px solid #33FF00;
+	border-radius: 5px;
+	background: #F2F2F2;
+	margin-right: 8px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;
+	white-space:nowrap;
+}
+.content_left{
+	float: left;
+}
+.content_right{
+	float: right;
+}
+#middle_top .nav span{
+	float: left;
+	margin-right: 32px;
+	margin-top: 10px;
+}
+.serach1{
+	width: 70px;
+	margin-top: 8px;
+	height: 22px;
+	float: right;
+}
+.nav_middle{
+	float: left;
+	margin-left: 60px;
+	line-height: 40px;
+}
+.content_middle{
+	margin-left: 60px;
+	float: left;
+}
+.content_num{
+	width: 30px;
+	text-align: center;
+}
+table{
+	border: 1px solid #79B690;
+	text-align: center;
+}
+td{
+	height: 45px;
+}
+.orange{
+	background: #FC8404;
+}
+.red{
+	background: #F40000;
+}
+.purple{
+	background: #FC84FC;
+}

@@ -5,10 +5,7 @@
 	background:#009A44 url(../../images/jishi/circle2.png) no-repeat 50% 50%;
 	position: relative;
 }
-#banner div{
-	height: 145px;
-	background: url(../../images/jishi/portrait.png) no-repeat 50% 50%;
-}
+
 #content{
 	margin: 10px 5px;
 	background: #fff;

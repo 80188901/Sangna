@@ -1,0 +1,73 @@
+.mui-segmented-control .mui-control-item:first-child {
+border-left-width: 0;
+}
+.mui-segmented-control .mui-control-item {
+border-left: 1px solid #CCCCCC;
+color: #999;
+}
+.mui-segmented-control .mui-control-item {
+display: table-cell;
+width: 1%;
+overflow: hidden;
+line-height: 38px;
+color: #007aff;
+text-align: center;
+text-overflow: ellipsis;
+white-space: nowrap;
+border-color: #007aff;
+border-left: 1px solid #007aff;
+-webkit-transition: background-color .1s linear;
+transition: background-color .1s linear;
+}
+a {
+color: #007aff;
+text-decoration: none;
+}
+a {
+background: 0 0;
+}
+* {
+margin: 0;
+padding: 0;
+}
+* {
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+-webkit-user-select: none;
+outline: 0;
+-webkit-tap-highlight-color: transparent;
+-webkit-tap-highlight-color: transparent;
+}
+user agent stylesheeta:-webkit-any-link {
+color: -webkit-link;
+text-decoration: underline;
+cursor: auto;
+}
+Inherited from div#segmentedControl.mui-segmented-control
+.mui-segmented-control {
+position: relative;
+display: table;
+width: 100%;
+overflow: hidden;
+font-size: 15px;
+font-weight: 400;
+table-layout: fixed;
+background-color: transparent;
+border: 1px solid #007aff;
+border-radius: 3px;
+-webkit-touch-callout: none;
+}
+Inherited from body
+body {
+-webkit-overflow-scrolling: touch;
+font-family: "Helvetica Neue",Helvetica,sans-serif;
+font-size: 17px;
+line-height: 21px;
+color: #000;
+background-color: #fff;
+}
+Inherited from html
+html {
+font-family: sans-serif;
+-webkit-text-size-adjust: 100%;
+}

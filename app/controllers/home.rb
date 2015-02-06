@@ -31,6 +31,25 @@ get :lookdetails ,:with=>:id do
     @technician=Technician.find(params[:technician_id])
     render :technician_detail
   end
+
+get :alltechnician do
+  @technicians=Technician.all();
+  @technicians.each do |technician|
+  if !technician.situation
+     if technician.wordtime.to_i<Time.now.to_i
+        technician.update_attributes(situation:true,wordtime:" ")
+     end
+  end
+end
+  render :technician
+end
+get :appointment_from_technician do
+  shop=Shop.find(params[:shop_id])
+    @orders=shop.orders.where(isuse:false)
+  
+  render :myorders
+end
+
   get :map  do
     
    @shops=Shop.all();

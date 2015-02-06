@@ -32,7 +32,11 @@
 							<div class="mui-media-body">
 								<%=order.server.name%>￥<%=order.server.price%>
 								<p class='mui-ellipsis'><%=order.server.remark%></p>
+						<%if params[:technician_id]%>
+					<a href="/home/appointment?order_id=<%=order._id%>&technician_id=<%=params[:technician_id]%>"><button style="" class="make_submit" >立即预约</button></a>
+						<%else %>
 						<a href="/home/appointment?order_id=<%=order._id%>"><button style="" class="make_submit" >立即预约</button></a>
+						<%end%>
 							</div>
 						</a>
 					</li>

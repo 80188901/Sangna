@@ -21,7 +21,7 @@ Sanna::App.controllers :orders do
   
 get :create do
   puts 'aaaa'
-   @order=Order.create!(shop_id:params[:shop_id],server_id:params[:server_id],applydate:Time.now,remark:'i want girls')
+   @order=Order.create!(shop_id:params[:shop_id],server_id:params[:server_id],applydate:Time.now)
     render :html,'/home/myorders?shop_id='+params[:shop_id]
 end
 end

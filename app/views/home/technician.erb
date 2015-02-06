@@ -27,7 +27,7 @@
 			</dl>
 			<dl class="three">
 			<%if technician.situation%>
-				<button class="three_submit">立即预约</button>
+				<a href="/home/appointment_from_technician?shop_id=<%=technician.shop._id%>&technician_id=<%=technician._id%>"><button class="three_submit">立即预约</button></a>
 				<%else%>
 				<button class="three_free">将在<%=technician.wordtime.strftime("%H:%M")%>后空闲</button>
 				<%end%>

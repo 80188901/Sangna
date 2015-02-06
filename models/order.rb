@@ -8,7 +8,7 @@ class Order
  has_one :comment
   # field <name>, :type => <type>, :default => <value>
    field :applydate, :type=>DateTime
-   field :remark, :type=>String
+   field :remark, :type=>String,:default=>'0'
  field :isuse,:type=>Boolean,:default=>false
  field :isnow,:type=>Boolean,:default=>false
  field :usedate,:type=>DateTime

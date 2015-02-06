@@ -32,10 +32,11 @@
 <div id="wrap">
 	<div id="header">
 		<span><%=@technician.name%>，你好</span>
-	<a href="search.html"><img src="<%=image_path 'jishi/search.png'%>" alt="*" id="right_png" height="35px"></a>	
+	<a href="#"><img src="<%=image_path 'jishi/search.png'%>" alt="*" id="right_png" height="35px"></a>	
 	</div>
-	<div id="banner">
-		<div></div>
+	<div id="banner" style="overflow:hidden;">
+		<img src="../../images/jishi/<%=@technician.technician_info.imgurl%>" alt="" style="display:block;width:80px;height:80px;margin:0 auto;margin-top:30px;border-radius:80px;">
+		<!-- <div style="width:50px;height:50px; background: url() no-repeat 60% 50% ;background-size:50px 50px"></div> -->
 	</div>
 	<div id="content">
 		<div id="handel"><span class="handel">&nbsp;</span>上钟下钟<b id="new" style="color:red"></b></div>
@@ -47,7 +48,7 @@
 	<div id="undo"></div>
 </div>
 <div id="footer">
-			<a href="file:///android_asset/www/goods.html"><span class="a">&nbsp;&nbsp;&nbsp;</span></a>
+			<a href="#"><span class="a">&nbsp;&nbsp;&nbsp;</span></a>
 			<span class="b">&nbsp;&nbsp;&nbsp;</span>
 			<span class="c">&nbsp;&nbsp;&nbsp;</span>
 			<span class="d">&nbsp;&nbsp;&nbsp;</span>
