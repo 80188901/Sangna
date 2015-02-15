@@ -14,7 +14,10 @@ Sanna::App.controllers :home do
   # get :foo, :with => :id do
   #   'Maps to url '/foo/#{params[:id]}''
   # end
-
+get :test do
+  
+   render :test
+end
   # get '/example' do
   #   'Hello world!'
   # end

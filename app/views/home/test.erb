@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{width:100%;height:100%;}
+		p{margin-left:5px; font-size:14px;}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GiTogIkns0505WZWt7rZq04Y"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script>
+	 <script src="http://api.map.baidu.com/components?ak=GiTogIkns0505WZWt7rZq04Y&v=1.0"></script>
+	<title>添加椭圆</title>
+</head>
+<body>
+	<div id="allmap"></div>
+	 <lbs-geo id="geo" city="深圳" enable-modified="false"></lbs-geo>
+</body>
+</html>
+<script type="text/javascript">
+	var x=''
+	var y=''
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(114.133663, 22.547752);
+	map.centerAndZoom(point, 16);
+	var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
+	var top_left_navigation = new BMap.NavigationControl();  //左上角，添加默认缩放平移控件
+	
+	map.addControl(top_left_control);        
+	map.addControl(top_left_navigation);     
+		
+var lbsGeo = document.getElementById('geo');
+  //监听定位失败事件 geofail  
+
+  lbsGeo.addEventListener("geofail",function(evt){ 
+    alert("fail");
+  });
+  //监听定位成功事件 geosuccess
+  lbsGeo.addEventListener("geosuccess",function(evt){ 
+    console.log(evt.detail);
+    var address = evt.detail.address;
+    var coords = evt.detail.coords;
+     x = coords.lng; 
+     y = coords.lat;
+    var marker = new BMap.Marker(new BMap.Point(x, y));        // 创建标注      
+    marker.setIcon(new BMap.Icon("<%=image_path 'dingwei.png'%>",   
+      new BMap.Size(32, 32), {      
+       // 指定定位位置。     
+       // 当标注显示在地图上时，其所指向的地理位置距离图标左上      
+       // 角各偏移7像素和25像素。您可以看到在本例中该位置即是     
+       // 图标中央下端的尖角位置。      
+       anchor: new BMap.Size(7, 25)       
+      }));       
+map.addOverlay(marker);
+ <%if !params[:shop_address]%>
+   map.centerAndZoom(new BMap.Point(x, y), 15);
+        <%end%>
+ });
+
+
+  // 定义一个控件类，即function      
+function ZoomControl(){      
+    // 设置默认停靠位置和偏移量    
+    this.defaultAnchor =BMAP_ANCHOR_BOTTOM_RIGHT;      
+    this.defaultOffset = new BMap.Size(10, 10);      
+}      
+// 通过JavaScript的prototype属性继承于BMap.Control     
+ZoomControl.prototype = new BMap.Control();   
+  
+ // 自定义控件必须实现initialize方法，并且将控件的DOM元素返回     
+// 在本方法中创建个div元素作为控件的容器，并将其添加到地图容器中     
+ZoomControl.prototype.initialize = function(map){      
+// 创建一个DOM元素     
+var img = document.createElement("img");      
+// 添加文字说明      
+ // 设置样式      
+img.style.cursor = "pointer";      
+img.style.border = "1px solid gray";   
+img.src="<%=image_path 'dingwei.png'%>"
+
+img.onclick = function(e){ 
+        map.setCenter(new BMap.Point(x,y));
+
+}     
+// 添加DOM元素到地图中     
+map.getContainer().appendChild(img);    
+   return img;    
+}  
+// 创建控件实例      
+var myZoomCtrl = new ZoomControl();      
+// 添加到地图当中      
+map.addControl(myZoomCtrl);
+
+	
+	//centre:椭圆中心点,X:横向经度,Y:纵向纬度
+	function add_oval(centre,x,y)
+	{
+		var assemble=new Array();
+		var angle;
+		var dot;
+		var tangent=x/y;
+		for(i=0;i<36;i++)
+		{
+			angle = (2* Math.PI / 36) * i;
+			dot = new BMap.Point(centre.lng+Math.sin(angle)*y*tangent, centre.lat+Math.cos(angle)*y);
+			assemble.push(dot);
+		}
+		return assemble;
+	}
+
+	var a=114.134322-point.lng;
+	var b=22.54805-point.lat;
+	var oval = new BMap.Polygon(add_oval(point,a,b), {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5});
+	map.addOverlay(oval);
+
+	var opts = {
+	  position : point,    // 指定文本标注所在的地理位置
+	  offset   : new BMap.Size(0, 0)    //设置文本偏移量
+	}
+	var label = new BMap.Label("A区", opts);  // 创建文本标注对象
+		label.setStyle({
+			 color : "red",
+			 fontSize : "15px",
+			 height : "30px",
+			 lineHeight : "30px",
+			 fontFamily:"微软雅黑"
+		 });
+	map.addOverlay(label);   
+
+	var oval = new BMap.Polygon(add_oval( new BMap.Point(114.145663, 22.559752),0.01,0.01), {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5});
+	map.addOverlay(oval);
+
+	var opts = {
+	  position :  new BMap.Point(114.145663, 22.559752),    // 指定文本标注所在的地理位置
+	  offset   : new BMap.Size(0, 0)    //设置文本偏移量
+	}
+	var label = new BMap.Label("B区", opts);  // 创建文本标注对象
+		label.setStyle({
+			 color : "red",
+			 fontSize : "15px",
+			 height : "30px",
+			 lineHeight : "30px",
+			 fontFamily:"微软雅黑"
+		 });
+	map.addOverlay(label);   
+	
+</script>
