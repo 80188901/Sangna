@@ -5,7 +5,7 @@ module Sanna
 
     enable :sessions
    get "/" do
-    redirect(url(:home,:nearby)) 
+    render "home/index"
    end
     ##
     # Caching support.
